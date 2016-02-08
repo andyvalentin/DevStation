@@ -26,7 +26,6 @@
         .config(function ($routeProvider: ng.route.IRouteProvider, $httpProvider: ng.IHttpProvider) {
 
             $httpProvider.interceptors.push('authInterceptor');
-
             $routeProvider
                 .when('/',
                     { template: 'Hello World!' });

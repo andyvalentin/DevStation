@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201602081909595_initial.Designer.cs">
       <DependentUpon>201602081909595_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602082336375_inbox.cs" />
+    <Compile Include="Migrations\201602082336375_inbox.Designer.cs">
+      <DependentUpon>201602082336375_inbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
@@ -311,6 +315,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201602081909595_initial.resx">
       <DependentUpon>201602081909595_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602082336375_inbox.resx">
+      <DependentUpon>201602082336375_inbox.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
