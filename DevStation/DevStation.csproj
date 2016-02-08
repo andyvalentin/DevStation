@@ -202,9 +202,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Domain\ApplicationUser.cs" />
+    <Compile Include="Domain\Company.cs" />
+    <Compile Include="Domain\Developer.cs" />
+    <Compile Include="Domain\Employer.cs" />
     <Compile Include="Domain\IEntityInterfaces.cs" />
+    <Compile Include="Domain\Job.cs" />
+    <Compile Include="Domain\Message.cs" />
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\GenericRepository.cs" />
+    <Compile Include="Migrations\201602081909595_initial.cs" />
+    <Compile Include="Migrations\201602081909595_initial.Designer.cs">
+      <DependentUpon>201602081909595_initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
@@ -298,6 +307,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602081909595_initial.resx">
+      <DependentUpon>201602081909595_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
