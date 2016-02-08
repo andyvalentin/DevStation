@@ -27,6 +27,8 @@
 
             $httpProvider.interceptors.push('authInterceptor');
 
-            $routeProvider.when('/', { template: 'Hello World!' });
+            $routeProvider
+                .when('/',
+                    { template: 'Hello World!' });
         });
 }
