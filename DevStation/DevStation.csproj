@@ -226,13 +226,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controllers\UserController.cs" />
+    <Compile Include="Presentation\Controllers\UsersController.cs" />
     <Compile Include="Presentation\Models\Identity\AccountBindingModels.cs" />
     <Compile Include="Presentation\Models\Identity\AccountViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Identity\ApplicationOAuthProvider.cs" />
     <Compile Include="Presentation\Models\Identity\ChallengeResult.cs" />
     <Compile Include="Services\JobService.cs" />
+    <Compile Include="Services\Models\Employee.cs" />
+    <Compile Include="Services\Models\JobDTO.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -303,6 +305,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Presentation\ngApp\app.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\authController.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\jobSearchController.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />

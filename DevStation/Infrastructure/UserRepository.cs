@@ -19,6 +19,7 @@ namespace DevStation.Infrastructure
         public IQueryable<ApplicationUser> ListUsers()
         {
             return from u in _db.Users
+                   where u.Active
                    select u;
         }
 
