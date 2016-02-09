@@ -212,13 +212,9 @@
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\JobRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />
-    <Compile Include="Migrations\201602081909595_initial.cs" />
-    <Compile Include="Migrations\201602081909595_initial.Designer.cs">
-      <DependentUpon>201602081909595_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602082336375_inbox.cs" />
-    <Compile Include="Migrations\201602082336375_inbox.Designer.cs">
-      <DependentUpon>201602082336375_inbox.cs</DependentUpon>
+    <Compile Include="Migrations\201602091732548_register.cs" />
+    <Compile Include="Migrations\201602091732548_register.Designer.cs">
+      <DependentUpon>201602091732548_register.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
@@ -255,6 +251,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Presentation\ngApp\.gitignore" />
+    <Content Include="Presentation\ngApp\views\login.html" />
+    <Content Include="Presentation\ngApp\views\register.html" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
@@ -295,7 +293,9 @@
     <Content Include="Services\Models\.keep" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Presentation\ngApp\views\" />
+    <EmbeddedResource Include="Migrations\201602091732548_register.resx">
+      <DependentUpon>201602091732548_register.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -319,14 +319,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602081909595_initial.resx">
-      <DependentUpon>201602081909595_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602082336375_inbox.resx">
-      <DependentUpon>201602082336375_inbox.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

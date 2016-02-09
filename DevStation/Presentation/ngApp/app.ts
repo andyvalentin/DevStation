@@ -28,6 +28,19 @@
             $httpProvider.interceptors.push('authInterceptor');
             $routeProvider
                 .when('/',
-                    { template: 'Hello World!' });
+                { template: 'Hello World!' })
+                .when('/register',
+                {
+                    templateUrl: 'Presentation/ngApp/views/register.html',
+                    controller: DevStation.Controllers.AuthController,
+                    controllerAs: 'c'
+                })
+
+                .when('/login',
+                {
+                    templateUrl: 'Presentation/ngApp/views/login.html',
+                    controller: DevStation.Controllers.AuthController,
+                    controllerAs: 'c'
+                });
         });
 }
