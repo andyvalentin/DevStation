@@ -28,7 +28,7 @@
             $httpProvider.interceptors.push('authInterceptor');
             $routeProvider
                 .when('/', {
-                    template: 'Hello World!'
+                    templateUrl: 'Presentation/ngApp/views/homePage.html'
                 })
                 .when("/devhome", {
                     templateUrl: "Presentation/ngApp/views/devHome.html",

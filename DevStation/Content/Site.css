@@ -12,3 +12,17 @@
     max-width: 300px;
     margin: 5px;
 }
+
+#devstationlogo {
+    height: 50px;
+    width: 100px;
+}
+
+.nav > li > a:hover {
+    background-color: white;
+}
+
+* {
+    border: 1px red solid;
+}
+
