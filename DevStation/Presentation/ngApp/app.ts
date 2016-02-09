@@ -27,7 +27,13 @@
 
             $httpProvider.interceptors.push('authInterceptor');
             $routeProvider
-                .when('/',
-                    { template: 'Hello World!' });
+                .when('/', {
+                    template: 'Hello World!'
+                })
+                .when("/devhome", {
+                    templateUrl: "Presentation/ngApp/views/devHome.html",
+                    controller: DevStation.Controllers.JobSearchController,
+                    controllerAs: "c"
+                })
         });
 }
