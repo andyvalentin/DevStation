@@ -1,5 +1,7 @@
 namespace DevStation.Migrations
 {
+    using Domain;
+    using Services.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;

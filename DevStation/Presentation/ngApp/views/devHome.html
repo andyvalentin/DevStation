@@ -1,0 +1,11 @@
+﻿<!--if search do .search.search.flex-start in Site.css. otherwise, do .search.search-center-->
+<div class="search">
+    <div class="search search-{{search ? "flex-start" : "center"}}">
+        <input ng-model="search" ng-model-options="{ debounce: 300 }" placeholder="Search Here" class="form-control" ng-change="c.updateStocks(search)" />
+        <ul>
+            <li ng-repeat="job in c.jobs">
+                {{job.Description}}
+            </li>
+        </ul>
+    </div>
+</div>
