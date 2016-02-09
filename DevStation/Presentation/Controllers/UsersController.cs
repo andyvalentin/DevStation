@@ -21,7 +21,7 @@ namespace DevStation.Presentation.Controllers
         }
 
         [HttpGet]
-        [Route("api/users/search/${searchTerm}")]
+        [Route("api/users/search/{searchTerm}")]
         public IList<JobDTO> JobSearch(string searchTerm)
         {
             return _jobService.Search(searchTerm);

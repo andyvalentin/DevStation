@@ -27,11 +27,11 @@ namespace DevStation.Services
             return (from j in _jobRepo.List()
                     where j.Active &&
                     j.Description.Contains(searchTerm) ||
-                    j.Employers.Company.CompanyName.StartsWith(searchTerm)
+                    j.Employer.Company.CompanyName.StartsWith(searchTerm)
                     select new JobDTO() {
                         Id = j.Id,
                         Description = j.Description,
-                        Company = j.Employers.Company.CompanyName
+                        Company = j.Employer.Company.CompanyName
                     }).ToList();
         }
     }
