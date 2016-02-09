@@ -6,7 +6,7 @@ using System.Web;
 
 namespace DevStation.Domain
 {
-    public class Job : IActivatable
+    public class Job : IActivatable, IDbEntity
     {
         [Key]
         public int Id { get; set; }
