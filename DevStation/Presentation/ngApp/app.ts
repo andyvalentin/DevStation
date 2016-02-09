@@ -34,6 +34,18 @@
                     templateUrl: "Presentation/ngApp/views/devHome.html",
                     controller: DevStation.Controllers.JobSearchController,
                     controllerAs: "c"
+                })               
+                .when('/register',
+                {
+                    templateUrl: 'Presentation/ngApp/views/register.html',
+                    controller: DevStation.Controllers.AuthController,
+                    controllerAs: 'c'
                 })
+                .when('/login',
+                {
+                    templateUrl: 'Presentation/ngApp/views/login.html',
+                    controller: DevStation.Controllers.AuthController,
+                    controllerAs: 'c'
+                });
         });
 }
