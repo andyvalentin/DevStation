@@ -1,28 +1,46 @@
 ﻿.vertical-center {
     min-height: 100%;
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.vertical-center .form-control{
-    max-width: 300px;
-    margin: 5px;
+    .vertical-center .form-control {
+        max-width: 300px;
+        margin: 5px;
+    }
+
+#navbar-alignment {
+    top: 10px;
+}
+#devstationlogo {
+    height: 75px;
+    width: 155px;
 }
 
-#devstationlogo {
-    height: 50px;
-    width: 100px;
+#navbar-ul {
+    margin-top: 15px;
 }
+
+.navbar-ul-li {
+    font-size: 17px;
+}
+
 
 .nav > li > a:hover {
     background-color: white;
 }
 
-* {
+/** {
     border: 1px red solid;
-}
+}*/
 
+.homepage-div {
+    height: 575px;
+    width: auto;
+    background: linear-gradient( rgba(73, 155, 234, 0.95), rgba(73, 155, 234, 0.90) ), url("../Presentation/ngApp/img/trainStation.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

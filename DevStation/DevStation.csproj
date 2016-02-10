@@ -252,6 +252,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Presentation\ngApp\.gitignore" />
     <Content Include="Presentation\ngApp\img\devStationLogo.png" />
+    <Content Include="Presentation\ngApp\img\trainStation.jpg" />
     <Content Include="Presentation\ngApp\views\devHome.html" />
     <Content Include="Presentation\ngApp\views\homePage.html" />
     <Content Include="Presentation\ngApp\views\login.html" />
