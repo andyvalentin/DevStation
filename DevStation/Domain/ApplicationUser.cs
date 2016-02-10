@@ -18,6 +18,10 @@ namespace DevStation.Domain
         public IList<Message> Inbox { get; set; }
         public bool Active { get; set; } = true;
         public string Img { get; set; }
+        public Company Company { get; set; }
+        public IList<Job> JobRequests { get; set; }
+        public Job CurrentJob { get; set; }
+        public IList<Job> CompletedJobs { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
