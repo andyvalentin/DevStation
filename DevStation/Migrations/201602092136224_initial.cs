@@ -3,7 +3,7 @@ namespace DevStation.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -91,11 +91,14 @@ namespace DevStation.Migrations
                         Body = c.String(),
                         DateCreated = c.DateTime(nullable: false),
                         Active = c.Boolean(nullable: false),
-                        ApplicationUser_Id = c.String(maxLength: 128),
+                        Employers_Id = c.String(maxLength: 128),
+                        Developer_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
-                .Index(t => t.ApplicationUser_Id);
+                .ForeignKey("dbo.AspNetUsers", t => t.Employers_Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.Developer_Id)
+                .Index(t => t.Employers_Id)
+                .Index(t => t.Developer_Id);
             
             CreateTable(
                 "dbo.AspNetUserLogins",
@@ -142,14 +145,16 @@ namespace DevStation.Migrations
             DropForeignKey("dbo.Jobs", "ApplicationUser_Id1", "dbo.AspNetUsers");
             DropForeignKey("dbo.Messages", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUsers", "CurrentJob_Id", "dbo.Jobs");
-            DropForeignKey("dbo.Jobs", "ApplicationUser_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Jobs", "Employer_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Jobs", "Developer_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Jobs", "Employers_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUsers", "Company_Id", "dbo.Companies");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.Jobs", new[] { "Developer_Id" });
+            DropIndex("dbo.Jobs", new[] { "Employers_Id" });
             DropIndex("dbo.Messages", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.Jobs", new[] { "ApplicationUser_Id1" });
             DropIndex("dbo.Jobs", new[] { "ApplicationUser_Id" });
