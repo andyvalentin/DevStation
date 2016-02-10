@@ -6,7 +6,7 @@
             this.jobs = [];
 
             if (searchTerm) {
-                this.$http.get(`/api/users/search/${searchTerm}`)
+                this.$http.get(`/api/jobs/search/${searchTerm}`)
                     .then((response) => {
                         this.jobs = response.data;
                     });

@@ -1,6 +1,8 @@
 namespace DevStation.Migrations
 {
     using Domain;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Services.Models;
     using System;
     using System.Data.Entity;
@@ -16,18 +18,38 @@ namespace DevStation.Migrations
 
         protected override void Seed(DevStation.Infrastructure.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new ApplicationUserManager(userStore);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var tony = userManager.FindByName("tonyc");
+
+            if(tony == null)
+            {
+                tony = new ApplicationUser
+                {
+                    UserName = "tonyc",
+                    Email = "tonyc@gmail.com",
+                    FirstName = "Tony",
+                    LastName = "Chabi",
+
+                };
+
+                userManager.Create(tony, "Secret123!");
+            }
+
+            var andy = userManager.FindByName("andyv");
+
+            if(andy == null)
+            {
+                andy = new ApplicationUser
+                {
+                    UserName = "andyv",
+                    Email = "andyv@gmail.com",
+                    FirstName = "Andy",
+                    LastName = "Valentin"
+                };
+                userManager.Create(andy, "Secret123!");
+            }        
         }
     }
 }

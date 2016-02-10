@@ -17,21 +17,41 @@ namespace DevStation.Services
             _jobRepo = jobRepo;
         }
 
-        public IList<Job> ListJobs()
+        public IList<JobDTO> ListJobs()
         {
-            return _jobRepo.List().ToList();
+            return (from j in _jobRepo.ListJobs()
+                    select new JobDTO()
+                    {
+                        Id = j.Id,
+                        Title = j.Title,
+                        Description = j.Description,
+                        Employer = (new EmployerDTO()
+                        {
+                            Id = j.Employer.Id,
+                            FirstName = j.Employer.FirstName,
+                            LastName = j.Employer.LastName
+                        })
+                    }).ToList();
         }
 
-        public IList<JobDTO> Search(string searchTerm)
+        public IList<JobDTO> SearchJobs(string searchTerm)
         {
-            return (from j in _jobRepo.List()
-                    where j.Active &&
-                    j.Description.Contains(searchTerm) ||
-                    j.Employer.Company.CompanyName.StartsWith(searchTerm)
-                    select new JobDTO() {
+            return (from j in _jobRepo.SearchJobs(searchTerm)
+                    select new JobDTO()
+                    {
                         Id = j.Id,
+                        Title = j.Title,
                         Description = j.Description,
-                        Company = j.Employer.Company.CompanyName
+                        Employer = (new EmployerDTO()
+                        {
+                            Id = j.Employer.Id,
+                            FirstName = j.Employer.FirstName,
+                            LastName = j.Employer.LastName,
+                            Company = (new CompanyDTO()
+                            {
+                                CompanyName = j.Employer.Company.CompanyName
+                            })
+                        })
                     }).ToList();
         }
     }

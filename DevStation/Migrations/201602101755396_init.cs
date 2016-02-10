@@ -38,7 +38,6 @@ namespace DevStation.Migrations
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
                         Company_Id = c.Int(),
                         CurrentJob_Id = c.Int(),
                     })
@@ -63,6 +62,26 @@ namespace DevStation.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
+                "dbo.Jobs",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Title = c.String(),
+                        Description = c.String(),
+                        Active = c.Boolean(nullable: false),
+                        Employer_Id = c.String(maxLength: 128),
+                        ApplicationUser_Id = c.String(maxLength: 128),
+                        ApplicationUser_Id1 = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.Employer_Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id1)
+                .Index(t => t.Employer_Id)
+                .Index(t => t.ApplicationUser_Id)
+                .Index(t => t.ApplicationUser_Id1);
+            
+            CreateTable(
                 "dbo.Messages",
                 c => new
                     {
@@ -77,22 +96,6 @@ namespace DevStation.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
                 .Index(t => t.ApplicationUser_Id);
-            
-            CreateTable(
-                "dbo.Jobs",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Description = c.String(),
-                        Active = c.Boolean(nullable: false),
-                        Employers_Id = c.String(maxLength: 128),
-                        Developer_Id = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.Employers_Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.Developer_Id)
-                .Index(t => t.Employers_Id)
-                .Index(t => t.Developer_Id);
             
             CreateTable(
                 "dbo.AspNetUserLogins",
@@ -114,8 +117,8 @@ namespace DevStation.Migrations
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
@@ -133,22 +136,24 @@ namespace DevStation.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Jobs", "ApplicationUser_Id1", "dbo.AspNetUsers");
             DropForeignKey("dbo.Messages", "ApplicationUser_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.AspNetUsers", "CurrentJob_Id", "dbo.Jobs");
-            DropForeignKey("dbo.Jobs", "Developer_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Jobs", "Employers_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Jobs", "ApplicationUser_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Jobs", "Employer_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUsers", "Company_Id", "dbo.Companies");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
-            DropIndex("dbo.Jobs", new[] { "Developer_Id" });
-            DropIndex("dbo.Jobs", new[] { "Employers_Id" });
             DropIndex("dbo.Messages", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.Jobs", new[] { "ApplicationUser_Id1" });
+            DropIndex("dbo.Jobs", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.Jobs", new[] { "Employer_Id" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", new[] { "CurrentJob_Id" });
             DropIndex("dbo.AspNetUsers", new[] { "Company_Id" });
@@ -156,8 +161,8 @@ namespace DevStation.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
-            DropTable("dbo.Jobs");
             DropTable("dbo.Messages");
+            DropTable("dbo.Jobs");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Companies");
