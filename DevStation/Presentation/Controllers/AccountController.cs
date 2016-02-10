@@ -332,6 +332,7 @@ namespace DevStation.Controllers
             var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            //UserManager.AddToRole(user.Id, user.Role);
 
             if (!result.Succeeded)
             {

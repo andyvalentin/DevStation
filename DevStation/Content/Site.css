@@ -17,11 +17,11 @@
 }
 #devstationlogo {
     height: 75px;
-    width: 155px;
+    width: 165px;
 }
 
 #navbar-ul {
-    margin-top: 15px;
+    margin-top: 17px;
 }
 
 .navbar-ul-li {
@@ -38,9 +38,9 @@
 }*/
 
 .homepage-div {
-    height: 575px;
+    height: 565px;
     width: auto;
-    background: linear-gradient( rgba(73, 155, 234, 0.95), rgba(73, 155, 234, 0.90) ), url("../Presentation/ngApp/img/trainStation.jpg");
+    background: linear-gradient( rgba(73, 155, 234, 0.80), rgba(73, 155, 234, 0.60) ), url("../Presentation/ngApp/img/trainStation.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
