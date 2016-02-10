@@ -3,7 +3,7 @@ namespace DevStation.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -83,15 +83,16 @@ namespace DevStation.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Title = c.String(),
                         Description = c.String(),
                         Active = c.Boolean(nullable: false),
-                        Employers_Id = c.String(maxLength: 128),
+                        Employer_Id = c.String(maxLength: 128),
                         Developer_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.Employers_Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.Employer_Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.Developer_Id)
-                .Index(t => t.Employers_Id)
+                .Index(t => t.Employer_Id)
                 .Index(t => t.Developer_Id);
             
             CreateTable(
@@ -140,14 +141,14 @@ namespace DevStation.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.AspNetUsers", "CurrentJob_Id", "dbo.Jobs");
             DropForeignKey("dbo.Jobs", "Developer_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Jobs", "Employers_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Jobs", "Employer_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUsers", "Company_Id", "dbo.Companies");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.Jobs", new[] { "Developer_Id" });
-            DropIndex("dbo.Jobs", new[] { "Employers_Id" });
+            DropIndex("dbo.Jobs", new[] { "Employer_Id" });
             DropIndex("dbo.Messages", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", new[] { "CurrentJob_Id" });

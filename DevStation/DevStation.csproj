@@ -212,17 +212,9 @@
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\JobRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />
-    <Compile Include="Migrations\201602091956538_init.cs" />
-    <Compile Include="Migrations\201602091956538_init.Designer.cs">
-      <DependentUpon>201602091956538_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602092016415_init2.cs" />
-    <Compile Include="Migrations\201602092016415_init2.Designer.cs">
-      <DependentUpon>201602092016415_init2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602092017512_init3.cs" />
-    <Compile Include="Migrations\201602092017512_init3.Designer.cs">
-      <DependentUpon>201602092017512_init3.cs</DependentUpon>
+    <Compile Include="Migrations\201602092136224_initial.cs" />
+    <Compile Include="Migrations\201602092136224_initial.Designer.cs">
+      <DependentUpon>201602092136224_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
@@ -259,7 +251,10 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Presentation\ngApp\.gitignore" />
+    <Content Include="Presentation\ngApp\img\devStationLogo.png" />
+    <Content Include="Presentation\ngApp\img\trainStation.jpg" />
     <Content Include="Presentation\ngApp\views\devHome.html" />
+    <Content Include="Presentation\ngApp\views\homePage.html" />
     <Content Include="Presentation\ngApp\views\login.html" />
     <Content Include="Presentation\ngApp\views\register.html" />
     <Content Include="Scripts\angular-mocks.js" />
@@ -302,17 +297,6 @@
     <Content Include="Services\Models\.keep" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602091956538_init.resx">
-      <DependentUpon>201602091956538_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602092016415_init2.resx">
-      <DependentUpon>201602092016415_init2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602092017512_init3.resx">
-      <DependentUpon>201602092017512_init3.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
@@ -334,6 +318,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602092136224_initial.resx">
+      <DependentUpon>201602092136224_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
