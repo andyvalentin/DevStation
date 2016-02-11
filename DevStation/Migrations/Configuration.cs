@@ -68,7 +68,19 @@ namespace DevStation.Migrations
 
             context.Jobs.AddOrUpdate(u => u.Title, jobs);
             context.Companies.AddOrUpdate(c => c.CompanyName, companies);
-               
+
+            
+            if (context.Roles.Count() == 0)
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var developer = new IdentityRole { Name = "Developer" };
+                var employer = new IdentityRole { Name = "Employer" };
+
+                manager.Create(developer);
+                manager.Create(employer);
+            }
+
         }
     }
 }

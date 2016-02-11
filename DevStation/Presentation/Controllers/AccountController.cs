@@ -329,10 +329,11 @@ namespace DevStation.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-            //UserManager.AddToRole(user.Id, user.Role);
+
+            UserManager.AddToRole(user.Id, model.Role);
 
             if (!result.Succeeded)
             {
