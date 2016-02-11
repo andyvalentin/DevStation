@@ -11,6 +11,7 @@ namespace DevStation.Services.Models
         public int Id { get; set; }
         public string CompanyName { get; set; }
         public string CompanyEmail { get; set; }
+        public string CompanyPhoneNumber { get; set; }
         [JsonIgnore]
         public IList<EmployerDTO> Employers { get; set; }
     }

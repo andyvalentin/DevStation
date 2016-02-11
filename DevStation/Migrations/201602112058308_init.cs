@@ -14,6 +14,7 @@ namespace DevStation.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         CompanyName = c.String(),
                         CompanyEmail = c.String(),
+                        CompanyPhoneNumber = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -27,6 +28,7 @@ namespace DevStation.Migrations
                         Position = c.String(),
                         Active = c.Boolean(nullable: false),
                         Img = c.String(),
+                        SkillSet = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),

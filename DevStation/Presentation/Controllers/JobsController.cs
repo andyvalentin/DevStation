@@ -36,5 +36,18 @@ namespace DevStation.Presentation.Controllers
             }
             return BadRequest("This is a bad request");
         }
+
+        [HttpGet]
+        [Route("api/jobs/{id}")]
+        public IHttpActionResult JobById(int id)
+        {
+            if(ModelState.IsValid)
+            {
+                var gameToReturn = _jobService.JobById(id);
+                return Ok(_jobService.JobById(id));
+            }
+            return BadRequest("JobById yielded no results");
+        }
+
     }
 }

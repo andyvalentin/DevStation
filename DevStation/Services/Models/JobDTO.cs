@@ -13,6 +13,5 @@ namespace DevStation.Services.Models
         public string Description { get; set; }
         public EmployerDTO Employer { get; set; }
         public bool Active { get; set; }
-        public string Img { get; set; }
     }
 }
