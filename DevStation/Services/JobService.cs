@@ -54,5 +54,26 @@ namespace DevStation.Services
                         })
                     }).ToList();
         }
+
+        public JobDTO JobById(int id)
+        {
+            var jobToCopy = (_jobRepo.JobById(id));
+            var jobToReturn = new JobDTO()
+            {
+                Id = jobToCopy.Id,
+                Title = jobToCopy.Title,
+                Description = jobToCopy.Description,
+                Employer = (new EmployerDTO()
+                {
+                    Id = jobToCopy.Employer.Id,
+                    FirstName = jobToCopy.Employer.FirstName,
+                    LastName = jobToCopy.Employer.LastName,
+                    Email = jobToCopy.Employer.Email,
+                    PhoneNumber = jobToCopy.Employer.PhoneNumber,
+                    Img = jobToCopy.Employer.Img,
+                })
+            };
+            return jobToReturn;
+        }
     }
 }

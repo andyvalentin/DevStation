@@ -18,9 +18,9 @@ namespace DevStation.Infrastructure
 
         public IQueryable<Job> ListJobs()
         {
-            return from j in _db.Jobs
-                   where j.Active
-                   select j;
+            var jobs = _db.Jobs
+                .Include(j => j.Employer);
+            return jobs;
         }
 
         public IQueryable<Job> SearchJobs(string searchTerm)
@@ -34,5 +34,14 @@ namespace DevStation.Infrastructure
                    select j;
         }
 
+        public Job JobById(int id)
+        {
+            var jobToReturn = (from j in ListJobs()
+                   where j.Active && j.Id == id
+                   select j)
+                   .Include(j => j.Employer)
+                   .FirstOrDefault();
+            return jobToReturn;
+        }
     }
 }

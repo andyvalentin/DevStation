@@ -210,14 +210,6 @@
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\JobRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />
-    <Compile Include="Migrations\201602111648093_init.cs" />
-    <Compile Include="Migrations\201602111648093_init.Designer.cs">
-      <DependentUpon>201602111648093_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602111654072_skillset.cs" />
-    <Compile Include="Migrations\201602111654072_skillset.Designer.cs">
-      <DependentUpon>201602111654072_skillset.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
@@ -233,6 +225,7 @@
     <Compile Include="Presentation\Models\Identity\ChallengeResult.cs" />
     <Compile Include="Services\JobService.cs" />
     <Compile Include="Services\Models\CompanyDTO.cs" />
+    <Compile Include="Services\Models\DeveloperDTO.cs" />
     <Compile Include="Services\Models\EmployerDTO.cs" />
     <Compile Include="Services\Models\JobDTO.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -256,9 +249,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Presentation\ngApp\.gitignore" />
     <Content Include="Presentation\ngApp\views\devHome.html" />
-    <Content Include="Presentation\ngApp\views\devList.html" />
     <Content Include="Presentation\ngApp\views\devSearch.html" />
     <Content Include="Presentation\ngApp\views\homePage.html" />
+    <Content Include="Presentation\ngApp\views\jobDetails.html" />
     <Content Include="Presentation\ngApp\views\login.html" />
     <Content Include="Presentation\ngApp\views\register.html" />
     <Content Include="Scripts\angular-mocks.js" />
@@ -272,6 +265,7 @@
     <Content Include="Presentation\ngApp\models\.keep" />
     <Content Include="Presentation\ngApp\services\.keep" />
     <Content Include="App_Data\.keep" />
+    <Content Include="Presentation\ngApp\views\devProfile.hmtl" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -309,6 +303,7 @@
     <TypeScriptCompile Include="Presentation\ngApp\app.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\authController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\devSearchController.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\jobDetailsController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobSearchController.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
@@ -323,14 +318,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602111648093_init.resx">
-      <DependentUpon>201602111648093_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602111654072_skillset.resx">
-      <DependentUpon>201602111654072_skillset.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

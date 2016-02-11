@@ -31,7 +31,7 @@ namespace DevStation.Migrations
                     Email = "tonyc@gmail.com",
                     FirstName = "Tony",
                     LastName = "Chabi",
-
+                    PhoneNumber = "(847) 999-9999"
                 };
 
                 userManager.Create(tony, "Secret123!");
@@ -46,23 +46,30 @@ namespace DevStation.Migrations
                     UserName = "andyv",
                     Email = "andyv@gmail.com",
                     FirstName = "Andy",
-                    LastName = "Valentin"
+                    LastName = "Valentin",
+                    PhoneNumber = "(847) 666-6666"
                 };
                 userManager.Create(andy, "Secret123!");
             }
+
+            var employers = new ApplicationUser[2]
+            {
+                andy,
+                tony
+            };
 
             var jobs = new Job[]
             {
                 new Job { Title = "Group Project", Description = "Need to finish to graduate", Active = true, Employer = tony },
                 new Job { Title = "Bug Catcher", Description = "Catch bugs in the code", Active = true, Employer = andy },
-                new Job { Title = "Detailer", Description = "Put chips on shelves", Employer = tony },
+                new Job { Title = "Detailer", Description = "Put chips on shelves", Employer = tony, Active = true },
                 new Job { Title = "Programmer", Description = "Write full CRUD wep api apps", Active = true, Employer = andy }
             };
 
             var companies = new Company[]
             {
-                new Company { CompanyName = "Coder Camps", CompanyEmail = "codecamps@gmail.com" },
-                new Company { CompanyName = "Frito Lay", CompanyEmail = "fritolay@gamil.com" },
+                new Company { CompanyName = "Coder Camps", CompanyEmail = "codecamps@gmail.com", Employers = employers },
+                new Company { CompanyName = "Frito Lay", CompanyEmail = "fritolay@gamil.com", Employers = employers  },
                 new Company { CompanyName = "Hersheys", CompanyEmail = "hersheys@gmail.com" }
             };
 
