@@ -12,6 +12,15 @@
 
     <input ng-model="user.confirmPassword" placeholder="Confirm Password" class="form-control"  type="password" />
 
-    <input type="submit" value="Register" class="btn btn-success" />
+    <label>Please choose your role type</label>
+    
+        <label>
+            <input type="radio" ng-init="user.role = 'Developer'" name="role" /> Developer     
+        </label>
+        <label>
+            <input type="radio" ng-init="user.role = 'Employer'" name="role" /> Employer
+        </label>
+
+        <input type="submit" value="Register" class="btn btn-primary" />
 </form>
 
