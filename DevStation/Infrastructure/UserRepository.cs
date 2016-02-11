@@ -22,6 +22,5 @@ namespace DevStation.Infrastructure
                    where u.Active
                    select u;
         }
-
     }
 }

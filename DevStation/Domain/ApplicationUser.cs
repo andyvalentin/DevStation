@@ -22,6 +22,7 @@ namespace DevStation.Domain
         public IList<Job> JobRequests { get; set; }
         public Job CurrentJob { get; set; }
         public IList<Job> CompletedJobs { get; set; }
+        public string SkillSet { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {

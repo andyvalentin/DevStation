@@ -11,5 +11,7 @@ namespace DevStation.Services.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public CompanyDTO Company { get; set; }
+        public JobDTO CurrentJob { get; set; }
+        public IList<JobDTO> CompletedJobs { get; set; }
     }
 }
