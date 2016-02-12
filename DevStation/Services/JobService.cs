@@ -27,7 +27,6 @@ namespace DevStation.Services
                         Description = j.Description,
                         Employer = (new EmployerDTO()
                         {
-                            Id = j.Employer.Id,
                             FirstName = j.Employer.FirstName,
                             LastName = j.Employer.LastName
                         })
@@ -44,7 +43,6 @@ namespace DevStation.Services
                         Description = j.Description,
                         Employer = (new EmployerDTO()
                         {
-                            Id = j.Employer.Id,
                             FirstName = j.Employer.FirstName,
                             LastName = j.Employer.LastName,
                             Company = (new CompanyDTO()
@@ -65,7 +63,6 @@ namespace DevStation.Services
                 Description = jobToCopy.Description,
                 Employer = (new EmployerDTO()
                 {
-                    Id = jobToCopy.Employer.Id,
                     FirstName = jobToCopy.Employer.FirstName,
                     LastName = jobToCopy.Employer.LastName,
                     Email = jobToCopy.Employer.Email,

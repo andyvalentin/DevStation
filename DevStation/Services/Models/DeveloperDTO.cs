@@ -7,7 +7,6 @@ namespace DevStation.Services.Models
 {
     public class DeveloperDTO
     {
-        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -15,5 +14,6 @@ namespace DevStation.Services.Models
         public JobDTO CurrentJob { get; set; }
         public IList<JobDTO> CompletedJobs { get; set; }
         public string Img { get; set; }
+        public string SkillSet { get; set; }
     }
 }

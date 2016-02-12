@@ -210,6 +210,14 @@
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\JobRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />
+    <Compile Include="Migrations\201602121827194_init.cs" />
+    <Compile Include="Migrations\201602121827194_init.Designer.cs">
+      <DependentUpon>201602121827194_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602122217225_init2.cs" />
+    <Compile Include="Migrations\201602122217225_init2.Designer.cs">
+      <DependentUpon>201602122217225_init2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
@@ -249,7 +257,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Presentation\ngApp\.gitignore" />
     <Content Include="Presentation\ngApp\views\devHome.html" />
-    <Content Include="Presentation\ngApp\views\devSearch.html" />
     <Content Include="Presentation\ngApp\views\homePage.html" />
     <Content Include="Presentation\ngApp\views\jobDetails.html" />
     <Content Include="Presentation\ngApp\views\login.html" />
@@ -265,7 +272,7 @@
     <Content Include="Presentation\ngApp\models\.keep" />
     <Content Include="Presentation\ngApp\services\.keep" />
     <Content Include="App_Data\.keep" />
-    <Content Include="Presentation\ngApp\views\devProfile.hmtl" />
+    <Content Include="Presentation\ngApp\views\profile.html" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -305,6 +312,7 @@
     <TypeScriptCompile Include="Presentation\ngApp\controllers\devSearchController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobDetailsController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobSearchController.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\profileController.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
@@ -318,6 +326,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602121827194_init.resx">
+      <DependentUpon>201602121827194_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602122217225_init2.resx">
+      <DependentUpon>201602122217225_init2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

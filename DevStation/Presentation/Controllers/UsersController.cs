@@ -18,6 +18,17 @@ namespace DevStation.Presentation.Controllers
             _userService = userService;
         }
 
-
+        [HttpGet]
+        [Authorize]
+        [Route("api/users/profile")]
+        public IHttpActionResult UserByUserName()
+        {
+            if (ModelState.IsValid)
+            {
+                var userToReturn = _userService.UserByUserName(User.Identity.Name);
+                return Ok(userToReturn);
+            }
+            return BadRequest("User could not be found");
+        }
     }
 }

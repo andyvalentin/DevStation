@@ -32,5 +32,15 @@ namespace DevStation.Infrastructure
                    select u;                   
         }
 
+        public ApplicationUser UserByUserName(string userName)
+        {
+            return (from u in _db.Users
+                    where u.Active && u.UserName == userName
+                    select u)
+                    .Include(u => u.CurrentJob)
+                    .Include(u => u.CompletedJobs)
+                    .FirstOrDefault();
+        }
+
     }
 }

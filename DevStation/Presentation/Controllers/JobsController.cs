@@ -20,6 +20,7 @@ namespace DevStation.Presentation.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("api/jobs/search/{searchTerm}")]
         public IList<JobDTO> JobSearch(string searchTerm)
         {
@@ -27,6 +28,7 @@ namespace DevStation.Presentation.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("api/jobs/list")]
         public IHttpActionResult listJobs()
         {
@@ -38,6 +40,7 @@ namespace DevStation.Presentation.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("api/jobs/{id}")]
         public IHttpActionResult JobById(int id)
         {

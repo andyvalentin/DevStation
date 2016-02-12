@@ -53,5 +53,11 @@
                     controller: DevStation.Controllers.JobDetailsController,
                     controllerAs: "c"
                 })
+                .when("/user/profile", 
+                {
+                    templateUrl: "Presentation/ngApp/views/profile.html",
+                    controller: DevStation.Controllers.ProfileController,
+                    controllerAs: "c"
+                })
         });
 }
