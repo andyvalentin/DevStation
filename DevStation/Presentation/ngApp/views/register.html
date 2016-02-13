@@ -1,4 +1,45 @@
-﻿<form ng-submit="c.register(user)" class="vertical-center">
+﻿<div class="modal-header text-center">
+    <h2>Register</h2>
+</div>
+
+<div class="modal-body">
+    <form ng-submit="c.register(user)" class="form-group-lg">
+
+        <input ng-model="user.userName" placeholder="Enter Username" class="form-control" />
+
+        <input ng-model="user.firstName" placeholder="Enter First Name" class="form-control" />
+
+        <input ng-model="user.lastName" placeholder="Enter Last Name" class="form-control" />
+
+        <input ng-model="user.email" placeholder="Enter Email" class="form-control" type="email" />
+
+        <input ng-model="user.password" placeholder="Enter Password" class="form-control" type="password" />
+
+        <input ng-model="user.confirmPassword" placeholder="Confirm Password" class="form-control" type="password" />
+
+        <br>
+
+        <div class="text-center">
+            <label>Please choose your role: </label>
+
+            <label class="radio-inline">
+                <input type="radio" ng-init="user.role = 'Developer'" name="role" />Developer
+            </label>
+
+            <label class="radio-inline">
+                <input type="radio" ng-init="user.role = 'Employer'" name="role" />Employer
+            </label>
+        </div>
+        <div class="modal-footer">
+            <input type="submit" value="Register" class="btn btn-primary" />
+        </div>      
+    </form>
+</div>
+
+
+
+
+<!--<form ng-submit="c.register(user)" class="vertical-center">
     <h2>Register</h2>
     <input ng-model="user.userName" placeholder="Enter Username" class="form-control" />
 
@@ -22,5 +63,5 @@
         </label>
 
         <input type="submit" value="Register" class="btn btn-primary" />
-</form>
+</form>-->
 
