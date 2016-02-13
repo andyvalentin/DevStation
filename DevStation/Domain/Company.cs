@@ -13,6 +13,7 @@ namespace DevStation.Domain
         public int Id { get; set; }
         public string CompanyName { get; set; }
         public string CompanyEmail { get; set; }
+        public string CompanyPhoneNumber { get; set; }
         [JsonIgnore]
         public IList<ApplicationUser> Employers { get; set; }
     }

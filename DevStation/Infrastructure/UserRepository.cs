@@ -23,5 +23,24 @@ namespace DevStation.Infrastructure
                    select u;
         }
 
+        public IQueryable<ApplicationUser> SearchUsers(string searchTerm)
+        {
+            return from u in _db.Users
+                   where u.Active &&
+                   (u.FirstName.Contains(searchTerm) ||
+                   u.SkillSet.Contains(searchTerm))
+                   select u;                   
+        }
+
+        public ApplicationUser UserByUserName(string userName)
+        {
+            return (from u in _db.Users
+                    where u.Active && u.UserName == userName
+                    select u)
+                    .Include(u => u.CurrentJob)
+                    .Include(u => u.CompletedJobs)
+                    .FirstOrDefault();
+        }
+
     }
 }

@@ -27,7 +27,6 @@ namespace DevStation.Services
                         Description = j.Description,
                         Employer = (new EmployerDTO()
                         {
-                            Id = j.Employer.Id,
                             FirstName = j.Employer.FirstName,
                             LastName = j.Employer.LastName
                         })
@@ -44,7 +43,6 @@ namespace DevStation.Services
                         Description = j.Description,
                         Employer = (new EmployerDTO()
                         {
-                            Id = j.Employer.Id,
                             FirstName = j.Employer.FirstName,
                             LastName = j.Employer.LastName,
                             Company = (new CompanyDTO()
@@ -53,6 +51,26 @@ namespace DevStation.Services
                             })
                         })
                     }).ToList();
+        }
+
+        public JobDTO JobById(int id)
+        {
+            var jobToCopy = (_jobRepo.JobById(id));
+            var jobToReturn = new JobDTO()
+            {
+                Id = jobToCopy.Id,
+                Title = jobToCopy.Title,
+                Description = jobToCopy.Description,
+                Employer = (new EmployerDTO()
+                {
+                    FirstName = jobToCopy.Employer.FirstName,
+                    LastName = jobToCopy.Employer.LastName,
+                    Email = jobToCopy.Employer.Email,
+                    PhoneNumber = jobToCopy.Employer.PhoneNumber,
+                    Img = jobToCopy.Employer.Img,
+                })
+            };
+            return jobToReturn;
         }
     }
 }

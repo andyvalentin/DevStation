@@ -4,7 +4,7 @@
         <input ng-model="searchTerm" ng-model-options="{ debounce: 300 }" placeholder="Search Here" class="form-control" ng-change="c.searchJobs(searchTerm)" />
         <ul>
             <li ng-repeat="job in c.jobs">
-                {{job.title}}
+                {{job.title}}, {{job.employer.firstName}}, 
             </li>
         </ul>
     </div>
