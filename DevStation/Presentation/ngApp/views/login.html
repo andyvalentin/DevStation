@@ -1,8 +1,20 @@
-﻿<form ng-submit="c.login(userName, password)" class="vertical-center">
-    <h2>Login</h2>
-    <input ng-model="userName" placeholder="Enter Username" class="form-control" />
+﻿<div id="modal">
+    <div class="modal-header text-center">
+        <h2>Login</h2>
+    </div>
 
-    <input ng-model="password" placeholder="Enter First Name" class="form-control" type="password"/>
+    <div class="modal-body">
+        <form ng-submit="c.login(userName, password)" class="form-group-lg">
 
-    <input type="submit" value="Login" class="btn btn-success" />
-</form>
+            <input ng-model="userName" placeholder="Enter Username" class="form-control" />
+
+            <input ng-model="password" placeholder="Enter First Name" class="form-control" type="password" />
+
+            <div class="modal-footer">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

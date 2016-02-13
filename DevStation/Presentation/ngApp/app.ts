@@ -1,6 +1,6 @@
 ﻿namespace DevStation {
     
-    angular.module('DevStation', ['ngRoute']);
+    angular.module('DevStation', ['ngRoute', 'ui.bootstrap']);
 
     angular.module('DevStation').factory('authInterceptor',
         ($q: ng.IQService, $window: ng.IWindowService, $location: ng.ILocationService) => {
@@ -28,7 +28,9 @@
             $httpProvider.interceptors.push('authInterceptor');
             $routeProvider
                 .when('/', {
-                    templateUrl: 'Presentation/ngApp/views/homePage.html'
+                    templateUrl: 'Presentation/ngApp/views/homePage.html',
+                    controller: DevStation.Controllers.HomePageController,
+                    controllerAs: 'c'
                 })
                 .when("/devhome", {
                     templateUrl: "Presentation/ngApp/views/devHome.html",
