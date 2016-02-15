@@ -16,7 +16,7 @@ namespace DevStation.Services
         {
             _jobRepo = jobRepo;
         }
-
+        
         public IList<JobDTO> ListJobs()
         {
             return (from j in _jobRepo.ListJobs()
@@ -24,11 +24,12 @@ namespace DevStation.Services
                     {
                         Id = j.Id,
                         Title = j.Title,
-                        Description = j.Description,
+                        Description = j.Description.Substring(0, 20),
                         Employer = (new EmployerDTO()
                         {
                             FirstName = j.Employer.FirstName,
-                            LastName = j.Employer.LastName
+                            LastName = j.Employer.LastName, 
+                            Img = j.Employer.Img
                         })
                     }).ToList();
         }
@@ -45,10 +46,8 @@ namespace DevStation.Services
                         {
                             FirstName = j.Employer.FirstName,
                             LastName = j.Employer.LastName,
-                            Company = (new CompanyDTO()
-                            {
-                                CompanyName = j.Employer.Company.CompanyName
-                            })
+                            Img = j.Employer.Img,
+                            Company = j.Employer.Company
                         })
                     }).ToList();
         }
@@ -68,6 +67,7 @@ namespace DevStation.Services
                     Email = jobToCopy.Employer.Email,
                     PhoneNumber = jobToCopy.Employer.PhoneNumber,
                     Img = jobToCopy.Employer.Img,
+                    Position = jobToCopy.Employer.Position
                 })
             };
             return jobToReturn;

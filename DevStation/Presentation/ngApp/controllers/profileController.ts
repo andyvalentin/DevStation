@@ -1,6 +1,6 @@
 ﻿namespace DevStation.Controllers {
 
-    export class ProfileEditController {
+    export class ProfileController {
         public user;
 
         public updateDevProfile() {
@@ -8,7 +8,7 @@
                 .then((response) => {
                 })
             console.log("Function works");
-            this.$location.path("/user/profile/");
+            this.$location.path("/user/devprofile/");
         }
 
         public getUserProfile() {

@@ -58,13 +58,13 @@
                 .when("/user/devprofile", 
                 {
                     templateUrl: "Presentation/ngApp/views/devProfile.html",
-                    controller: DevStation.Controllers.ProfileEditController,
+                    controller: DevStation.Controllers.ProfileController,
                     controllerAs: "c"
                 })
                 .when("/user/devprofile/edit",
                 {
-                    templateUrl: "Presentation/ngApp/views/devProfileEdit.html",
-                    controller: DevStation.Controllers.ProfileEditController,
+                    templateUrl: "Presentation/ngApp/views/devProfile.html",
+                    controller: DevStation.Controllers.ProfileController,
                     controllerAs: "c"
                 })
 

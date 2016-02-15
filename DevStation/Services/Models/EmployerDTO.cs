@@ -11,7 +11,8 @@ namespace DevStation.Services.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public CompanyDTO Company { get; set; }
         public string Img { get; set; }
+        public string Position { get; set; }
+        public string Company { get; set; }
     }
 }

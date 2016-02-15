@@ -202,7 +202,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Domain\ApplicationUser.cs" />
-    <Compile Include="Domain\Company.cs" />
     <Compile Include="Domain\IEntityInterfaces.cs" />
     <Compile Include="Domain\Job.cs" />
     <Compile Include="Domain\Message.cs" />
@@ -224,7 +223,6 @@
     <Compile Include="Domain\Identity\ApplicationOAuthProvider.cs" />
     <Compile Include="Presentation\Models\Identity\ChallengeResult.cs" />
     <Compile Include="Services\JobService.cs" />
-    <Compile Include="Services\Models\CompanyDTO.cs" />
     <Compile Include="Services\Models\DeveloperDTO.cs" />
     <Compile Include="Services\Models\EmployerDTO.cs" />
     <Compile Include="Services\Models\JobDTO.cs" />
@@ -251,6 +249,7 @@
     <Content Include="Presentation\ngApp\.gitignore" />
     <Content Include="Presentation\ngApp\views\devHome.html" />
     <Content Include="Presentation\ngApp\views\devProfileEdit.html" />
+    <Content Include="Presentation\ngApp\views\devProfile.html" />
     <Content Include="Presentation\ngApp\views\homePage.html" />
     <Content Include="Presentation\ngApp\views\jobDetails.html" />
     <Content Include="Presentation\ngApp\views\login.html" />
@@ -270,7 +269,6 @@
     <Content Include="Presentation\ngApp\models\.keep" />
     <Content Include="Presentation\ngApp\services\.keep" />
     <Content Include="App_Data\.keep" />
-    <Content Include="Presentation\ngApp\views\devProfile.html" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -45,6 +45,9 @@ namespace DevStation.Migrations
                     FirstName = "Andy",
                     LastName = "Valentin",
                     PhoneNumber = "(847) 666-6666",
+                    Img = "http://www.almostsavvy.com/wp-content/uploads/2011/04/profile-photo.jpg",
+                    Position = "CEO",
+                    Company = "Coder Camps",
                     Active = true
                 };
                 userManager.Create(andy, "Secret123!");
@@ -85,6 +88,8 @@ namespace DevStation.Migrations
                     PhoneNumber = "(847) 999-9999",
                     CurrentJob = programmer,
                     SkillSet = "Full Stack .Net, Javascript, C#, Typescript",
+                    Img = "http://www.almostsavvy.com/wp-content/uploads/2011/04/profile-photo.jpg",
+                    Position = "Junior Developer",
                     CompletedJobs = new Job[] { frito, group },
                     Active = true
                 };
@@ -95,15 +100,7 @@ namespace DevStation.Migrations
                 
             }
 
-            var companies = new Company[]
-            {
-                new Company { CompanyName = "Coder Camps", CompanyEmail = "codecamps@gmail.com" },
-                new Company { CompanyName = "Frito Lay", CompanyEmail = "fritolay@gamil.com"  },
-                new Company { CompanyName = "Hersheys", CompanyEmail = "hersheys@gmail.com" }
-            };
-
             
-            context.Companies.AddOrUpdate(c => c.CompanyName, companies);
             context.SaveChanges();
         }
     }

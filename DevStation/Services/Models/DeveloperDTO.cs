@@ -15,5 +15,6 @@ namespace DevStation.Services.Models
         public IList<JobDTO> CompletedJobs { get; set; }
         public string Img { get; set; }
         public string SkillSet { get; set; }
+        public string Position { get; set; }
     }
 }
