@@ -1,4 +1,5 @@
-﻿using DevStation.Services;
+﻿using DevStation.Domain;
+using DevStation.Services;
 using DevStation.Services.Models;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,18 @@ namespace DevStation.Presentation.Controllers
                 return Ok(userToReturn);
             }
             return BadRequest("User could not be found");
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("api/user/profile/edit")]
+        public IHttpActionResult UpdateUserProfile(ApplicationUser user) {
+            if (ModelState.IsValid) {
+                _userService.UpdateDevProfile(user.FirstName, user.LastName, user.PhoneNumber, user.Email, user.SkillSet, User.Identity.Name);
+
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }

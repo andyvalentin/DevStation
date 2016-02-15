@@ -234,6 +234,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -247,6 +248,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Presentation\ngApp\.gitignore" />
     <Content Include="Presentation\ngApp\views\devHome.html" />
+    <Content Include="Presentation\ngApp\views\devProfileEdit.html" />
     <Content Include="Presentation\ngApp\views\devProfile.html" />
     <Content Include="Presentation\ngApp\views\homePage.html" />
     <Content Include="Presentation\ngApp\views\jobDetails.html" />
@@ -255,6 +257,10 @@
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
@@ -300,6 +306,7 @@
     <TypeScriptCompile Include="Presentation\ngApp\app.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\authController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\devSearchController.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\homePageController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobDetailsController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobSearchController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\profileController.ts" />

@@ -1,12 +1,31 @@
 ﻿namespace DevStation.Controllers {
+
     export class ProfileController {
         public user;
 
-        public constructor(private $http: ng.IHttpService, private $location: ng.ILocationService) {
-            this.$http.get(`/api/users/profile`)
+        public updateDevProfile() {
+            this.$http.post("api/user/profile/edit", this.user)
                 .then((response) => {
-                    this.user = response.data;
                 })
+            console.log("Function works");
+            this.$location.path("/user/devprofile/");
         }
+
+        public getUserProfile() {
+            this.$http.get("api/users/profile")
+                .then((reponse) => {
+                    this.user = reponse.data;
+                });
+        }
+
+        public logout() {
+            this.$window.localStorage.removeItem('token');
+            this.$location.path("/");
+        }
+
+        constructor(private $http: ng.IHttpService, private $window: ng.IWindowService, private $location: ng.ILocationService) {
+            this.getUserProfile();
+        }
+
     }
 }

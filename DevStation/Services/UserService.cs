@@ -12,11 +12,29 @@ namespace DevStation.Services
     {
         private UserRepository _userRepo;
         private JobRepository _jobRepo;
+        private ApplicationUserManager _userManagerRepo;
 
-        public UserService(UserRepository userRepo, JobRepository jobRepo)
+        public UserService(UserRepository userRepo, JobRepository jobRepo, ApplicationUserManager userManagerRepo)
         {
             _userRepo = userRepo;
             _jobRepo = jobRepo;
+            _userManagerRepo = userManagerRepo;
+        }
+
+        public void UpdateDevProfile(string firstName, string lastName, string phoneNumber, string email, string skillSet, string username)
+        {
+            var updatedUser = new ApplicationUser
+            {
+                UserName = username,
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+                PhoneNumber = phoneNumber,
+                SkillSet = skillSet,
+            };
+
+            _userRepo.UpdateUser(updatedUser);
+            
         }
 
         public DeveloperDTO UserByUserName(string userName)
@@ -73,22 +91,22 @@ namespace DevStation.Services
                     PhoneNumber = userToMap.PhoneNumber,
                     Img = userToMap.Img,
                     Position = userToMap.Position,
-                    SkillSet = userToMap.SkillSet,
-                    CurrentJob = (new JobDTO()
-                    {
-                        Id = userToMap.CurrentJob.Id,
-                        Title = userToMap.CurrentJob.Title,
-                        Description = userToMap.CurrentJob.Description
-                    }),
-                    CompletedJobs = (from j in userToMap.CompletedJobs                                     
-                                     select new JobDTO()
-                                     {
-                                         Id = j.Id,
-                                         Title = j.Title,
-                                         Description = j.Description
-                                     }).ToList()
-                };
-            }            
+                SkillSet = userToMap.SkillSet,
+                CurrentJob = (new JobDTO()
+                {
+                    Id = userToMap.CurrentJob.Id,
+                    Title = userToMap.CurrentJob.Title,
+                    Description = userToMap.CurrentJob.Description
+                }),
+                CompletedJobs = (from j in userToMap.CompletedJobs
+                                 select new JobDTO()
+                                 {
+                                     Id = j.Id,
+                                     Title = j.Title,
+                                     Description = j.Description
+                                 }).ToList()
+            };
+        }
             return userToReturn = new DeveloperDTO()
             {
                 FirstName = userToMap.FirstName,
