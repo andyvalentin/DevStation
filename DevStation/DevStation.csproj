@@ -209,18 +209,6 @@
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\JobRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />
-    <Compile Include="Migrations\201602140437358_init.cs" />
-    <Compile Include="Migrations\201602140437358_init.Designer.cs">
-      <DependentUpon>201602140437358_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602140513103_Img.cs" />
-    <Compile Include="Migrations\201602140513103_Img.Designer.cs">
-      <DependentUpon>201602140513103_Img.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602151823032_deletedCompany.cs" />
-    <Compile Include="Migrations\201602151823032_deletedCompany.Designer.cs">
-      <DependentUpon>201602151823032_deletedCompany.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
@@ -328,17 +316,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602140437358_init.resx">
-      <DependentUpon>201602140437358_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602140513103_Img.resx">
-      <DependentUpon>201602140513103_Img.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602151823032_deletedCompany.resx">
-      <DependentUpon>201602151823032_deletedCompany.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
