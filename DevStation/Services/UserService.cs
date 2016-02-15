@@ -12,11 +12,29 @@ namespace DevStation.Services
     {
         private UserRepository _userRepo;
         private JobRepository _jobRepo;
+        private ApplicationUserManager _userManagerRepo;
 
-        public UserService(UserRepository userRepo, JobRepository jobRepo)
+        public UserService(UserRepository userRepo, JobRepository jobRepo, ApplicationUserManager userManagerRepo)
         {
             _userRepo = userRepo;
             _jobRepo = jobRepo;
+            _userManagerRepo = userManagerRepo;
+        }
+
+        public void UpdateDevProfile(string firstName, string lastName, string phoneNumber, string email, string skillSet, string username)
+        {
+            var updatedUser = new ApplicationUser
+            {
+                UserName = username,
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+                PhoneNumber = phoneNumber,
+                SkillSet = skillSet,
+            };
+
+            _userRepo.UpdateUser(updatedUser);
+            
         }
 
         public DeveloperDTO UserByUserName(string userName)
@@ -52,7 +70,6 @@ namespace DevStation.Services
                     Img = userToMap.Img,
                     SkillSet = userToMap.SkillSet,
                     CompletedJobs = (from j in userToMap.CompletedJobs
-                                     where j.Employer.UserName == userName
                                      select new JobDTO()
                                      {
                                          Id = j.Id,
@@ -88,7 +105,6 @@ namespace DevStation.Services
                     Description = userToMap.CurrentJob.Description
                 }),
                 CompletedJobs = (from j in userToMap.CompletedJobs
-                                 where j.Employer.UserName == userName
                                  select new JobDTO()
                                  {
                                      Id = j.Id,

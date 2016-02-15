@@ -1,8 +1,26 @@
 ﻿.form-control {
-        margin: 5px auto;
-    }
+    margin: 5px auto;
+}
 
-label {
+.edit-input {
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-div {
+    background-color: dodgerblue;
+}
+
+.profile-edit {
+    width: 400px;
+}
+
+
+.register-label {
     display: inline-block;
     cursor: pointer;
     position: relative;
@@ -14,6 +32,7 @@ label {
 #navbar-alignment {
     top: 10px;
 }
+
 #devstationlogo {
     height: 75px;
     width: 165px;
@@ -27,7 +46,7 @@ label {
     font-size: 17px;
 }
 
-button{  
+button {
     outline: none;
     border: none;
     background-color: white;
