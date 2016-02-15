@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 
@@ -40,6 +41,19 @@ namespace DevStation.Infrastructure
                     .Include(u => u.CurrentJob)
                     .Include(u => u.CompletedJobs)
                     .FirstOrDefault();
+        }
+
+        public void UpdateUser(ApplicationUser user) {
+
+            var userToEdit = UserByUserName(user.UserName);
+
+            userToEdit.FirstName = user.FirstName;
+            userToEdit.LastName = user.LastName;
+            userToEdit.Email = user.Email;
+            userToEdit.PhoneNumber = user.PhoneNumber;
+            userToEdit.SkillSet = user.SkillSet;
+   
+            _db.SaveChanges();
         }
 
     }

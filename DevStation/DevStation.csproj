@@ -250,6 +250,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Presentation\ngApp\.gitignore" />
     <Content Include="Presentation\ngApp\views\devHome.html" />
+    <Content Include="Presentation\ngApp\views\devProfileEdit.html" />
     <Content Include="Presentation\ngApp\views\homePage.html" />
     <Content Include="Presentation\ngApp\views\jobDetails.html" />
     <Content Include="Presentation\ngApp\views\login.html" />
@@ -269,7 +270,7 @@
     <Content Include="Presentation\ngApp\models\.keep" />
     <Content Include="Presentation\ngApp\services\.keep" />
     <Content Include="App_Data\.keep" />
-    <Content Include="Presentation\ngApp\views\profile.html" />
+    <Content Include="Presentation\ngApp\views\devProfile.html" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
