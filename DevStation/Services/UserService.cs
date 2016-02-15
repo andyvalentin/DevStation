@@ -32,6 +32,8 @@ namespace DevStation.Services
                     LastName = userToMap.LastName,
                     Email = userToMap.Email,
                     PhoneNumber = userToMap.PhoneNumber,
+                    Position = userToMap.Position,
+                    SkillSet = userToMap.SkillSet,
                     Img = userToMap.Img,
                     CurrentJob = (new JobDTO()
                     {
@@ -50,9 +52,9 @@ namespace DevStation.Services
                     Email = userToMap.Email,
                     PhoneNumber = userToMap.PhoneNumber,
                     Img = userToMap.Img,
+                    Position = userToMap.Position,
                     SkillSet = userToMap.SkillSet,
                     CompletedJobs = (from j in userToMap.CompletedJobs
-                                     where j.Employer.UserName == userName
                                      select new JobDTO()
                                      {
                                          Id = j.Id,
@@ -61,7 +63,7 @@ namespace DevStation.Services
                                      }).ToList()
                 };
             }
-            else if (userToMap.CurrentJob == null && userToMap.CompletedJobs == null)
+            else if (userToMap.CurrentJob != null && userToMap.CompletedJobs != null)
             {
                 return userToReturn = new DeveloperDTO()
                 {
@@ -70,31 +72,32 @@ namespace DevStation.Services
                     Email = userToMap.Email,
                     PhoneNumber = userToMap.PhoneNumber,
                     Img = userToMap.Img,
-                    SkillSet = userToMap.SkillSet
+                    Position = userToMap.Position,
+                    SkillSet = userToMap.SkillSet,
+                    CurrentJob = (new JobDTO()
+                    {
+                        Id = userToMap.CurrentJob.Id,
+                        Title = userToMap.CurrentJob.Title,
+                        Description = userToMap.CurrentJob.Description
+                    }),
+                    CompletedJobs = (from j in userToMap.CompletedJobs                                     
+                                     select new JobDTO()
+                                     {
+                                         Id = j.Id,
+                                         Title = j.Title,
+                                         Description = j.Description
+                                     }).ToList()
                 };
-            }
+            }            
             return userToReturn = new DeveloperDTO()
             {
                 FirstName = userToMap.FirstName,
                 LastName = userToMap.LastName,
                 Email = userToMap.Email,
                 PhoneNumber = userToMap.PhoneNumber,
+                Position = userToMap.Position,
                 Img = userToMap.Img,
-                SkillSet = userToMap.SkillSet,
-                CurrentJob = (new JobDTO()
-                {
-                    Id = userToMap.CurrentJob.Id,
-                    Title = userToMap.CurrentJob.Title,
-                    Description = userToMap.CurrentJob.Description
-                }),
-                CompletedJobs = (from j in userToMap.CompletedJobs
-                                 where j.Employer.UserName == userName
-                                 select new JobDTO()
-                                 {
-                                     Id = j.Id,
-                                     Title = j.Title,
-                                     Description = j.Description
-                                 }).ToList()
+                SkillSet = userToMap.SkillSet
             };
         }
     }

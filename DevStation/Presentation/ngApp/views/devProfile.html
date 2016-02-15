@@ -5,38 +5,31 @@
         </div>
         <div>
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
-                <li class="navbar-ul-li"><a href="#/devhome"><span class="glyphicon glyphicon-list-alt"></span> Job List</a></li>
+                <li class="navbar-ul-li"><a href=""><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
                 <li class="navbar-ul-li"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<div class="container-fluid devhome-background">
-    <br />
+
+<div class="devhome-background">
     <div class="row">
+        <br />
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <div class="row well">
-                <div class="col-md-6" id="profile">
-                    <img class="img-rounded" id="profilepic" src="{{c.job.employer.img}}" />
-                    <dl class="">                        
-                        <dt>Employer</dt>
-                        <dd>{{c.job.employer.firstName}} {{c.job.employer.lastName}}</dd>
-                        <dt>Email</dt>
-                        <dd>{{c.job.employer.email}}</dd>
-                        <dt>Phone Number</dt>
-                        <dd>{{c.job.employer.phoneNumber}}</dd>
-                    </dl>
-                </div>
-                <div class="col-md-6" id="job">
-                    <div class="well text-center">
-                        <h1>{{c.job.title}}</h1>
-                        <p>{{c.job.description}}</p>
-                    </div>
-                </div>
+            <div class="col-md-4 well">
+                <img class="img-rounded" id="profilepic" src="{{c.user.img}}"/>
+                <h1>{{c.user.firstName}}</h1>
+                <h1>{{c.user.lastName}}</h1>
+                <h3>{{c.user.position}}</h3>
             </div>
-        </div>
-        <div class="col-md-3"></div>
+            <div class="col-md-8">
+
+            </div>
+        </div>   
+        <div class="col-md-3"></div>                    
     </div>
 </div>
+
+{{c.user.firstName}}, {{c.user.lastName}}, {{c.user.email}}, {{c.user.phoneNumber}}, {{c.user.currentJob}}

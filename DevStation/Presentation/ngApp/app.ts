@@ -53,9 +53,9 @@
                     controller: DevStation.Controllers.JobDetailsController,
                     controllerAs: "c"
                 })
-                .when("/user/profile", 
+                .when("/user/devprofile", 
                 {
-                    templateUrl: "Presentation/ngApp/views/profile.html",
+                    templateUrl: "Presentation/ngApp/views/devProfile.html",
                     controller: DevStation.Controllers.ProfileController,
                     controllerAs: "c"
                 })

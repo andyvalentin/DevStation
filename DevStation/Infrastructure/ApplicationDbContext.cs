@@ -10,7 +10,6 @@ namespace DevStation.Infrastructure
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public IDbSet<Company> Companies { get; set; }
         public IDbSet<Message> Messages { get; set; }
         public IDbSet<Job> Jobs { get; set; }
 

@@ -30,7 +30,7 @@ namespace DevStation.Infrastructure
                    (j.Title.Contains(searchTerm) ||
                    j.Description.Contains(searchTerm) ||
                    j.Employer.FirstName.Contains(searchTerm)) ||
-                   j.Employer.Company.CompanyName.Contains(searchTerm)
+                   j.Employer.Company.Contains(searchTerm)
                    select j;
         }
 

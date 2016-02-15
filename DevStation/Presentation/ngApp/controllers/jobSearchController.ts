@@ -16,7 +16,12 @@
                     this.jobs = response.data;
                 });
         }
-        public constructor(private $http: ng.IHttpService) {
+
+        public jobDetials(id: number) {
+            this.$location.path(`/job/details/${id}`);
+        }
+
+        public constructor(private $http: ng.IHttpService, private $location) {
             this.$http.get(`api/jobs/list`)
                 .then((response) => {
                     this.jobs = response.data;
