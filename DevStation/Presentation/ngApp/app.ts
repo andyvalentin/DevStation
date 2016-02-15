@@ -63,7 +63,7 @@
                 })
                 .when("/user/devprofile/edit",
                 {
-                    templateUrl: "Presentation/ngApp/views/devProfile.html",
+                    templateUrl: "Presentation/ngApp/views/devProfileEdit.html",
                     controller: DevStation.Controllers.ProfileController,
                     controllerAs: "c"
                 })
