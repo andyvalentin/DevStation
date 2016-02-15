@@ -6,6 +6,8 @@
         <div>
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
                 <li class="navbar-ul-li"><a href=""><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
+                <li class="navbar-ul-li"><a href="#/devhome"><span class="glyphicon glyphicon-list"></span> Job List</a></li>
+                <li class="navbar-ul-li"><a href="#/user/profile/edit"><span class="glyphicon glyphicon-edit"></span> Edit Profile</a></li>
                 <li class="navbar-ul-li"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
@@ -22,10 +24,19 @@
                 <img class="img-rounded" id="profilepic" src="{{c.user.img}}"/>
                 <h1>{{c.user.firstName}}</h1>
                 <h1>{{c.user.lastName}}</h1>
-                <h3>{{c.user.position}}</h3>
+                <h4>{{c.user.position}}</h4>
             </div>
-            <div class="col-md-8">
-
+            <div class="col-md-8 well">
+                <div class="row">
+                    <div>
+                        <h3 class="glyphicon glyphicon-user"> About</h3>
+                    </div>
+                    
+                    <div class="col-md-7">
+                        <label>Email</label>
+                        
+                    </div>
+                </div>
             </div>
         </div>   
         <div class="col-md-3"></div>                    

@@ -5,7 +5,7 @@
         </div>
         <div>
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
-                <li class="navbar-ul-li"><a href="#/user/devprofile"><span class="glyphicon glyphicon-flash"></span> My Profile</a></li>
+                <li class="navbar-ul-li"><a href="#/user/devprofile"><span class="glyphicon glyphicon-edit"></span> My Profile</a></li>
                 <li class="navbar-ul-li"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
@@ -14,7 +14,7 @@
 
 <div class="devhome-background">
     <div class="search">
-        <div class="search search-{{search ? "flex-start" : "center"}}">
+        <div class="search-{{search ? "flex-start" : "center"}}">
             <input ng-model="searchTerm" ng-model-options="{ debounce: 300 }" placeholder="Search Through Jobs" class="" ng-change="c.searchJobs(searchTerm)" />
         </div>
     </div>
@@ -43,4 +43,3 @@
 
 
 
-<!--if search do .search.search.flex-start in Site.css. otherwise, do .search.search-center-->
