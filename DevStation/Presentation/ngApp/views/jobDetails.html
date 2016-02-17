@@ -6,6 +6,7 @@
         <div>
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
                 <li class="navbar-ul-li"><a href=""><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
+                <li class="navbar-ul-li"><a href="#/user/devprofile"><span class="glyphicon glyphicon-user"></span> Pofile</a></li>
                 <li class="navbar-ul-li"><a href="#/devhome"><span class="glyphicon glyphicon-list"></span> Job List</a></li>
                 <li class="navbar-ul-li"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
@@ -13,7 +14,7 @@
     </div>
 </nav>
 
-<div class="container-fluid devhome-background">
+<div class="container-fluid">
     <br />
     <div class="row">
         <div class="col-md-3"></div>
@@ -21,19 +22,21 @@
             <div class="row well">
                 <div class="col-md-6" id="profile">
                     <img class="img-rounded" id="profilepic" src="{{c.job.employer.img}}" />
-                    <dl class="">                        
+                    <dl class=""> 
+                        <dt>Position</dt>      
+                        <dd>{{c.job.employer.position}} of {{c.job.employer.company}}</dd>                 
                         <dt>Employer</dt>
                         <dd>{{c.job.employer.firstName}} {{c.job.employer.lastName}}</dd>
                         <dt>Email</dt>
                         <dd>{{c.job.employer.email}}</dd>
                         <dt>Phone Number</dt>
-                        <dd>{{c.job.employer.phoneNumber}}</dd>
+                        <dd>{{c.job.employer.phoneNumber}}</dd>                        
                     </dl>
                 </div>
                 <div class="col-md-6" id="job">
-                    <div class="well text-center">
+                    <div class="text-center">
                         <h1>{{c.job.title}}</h1>
-                        <p>{{c.job.description}}</p>
+                        <h3>{{c.job.description}}</h3>
                     </div>
                 </div>
             </div>
