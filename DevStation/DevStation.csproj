@@ -209,10 +209,6 @@
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\JobRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />
-    <Compile Include="Migrations\201602161745199_init.cs" />
-    <Compile Include="Migrations\201602161745199_init.Designer.cs">
-      <DependentUpon>201602161745199_init.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
@@ -254,6 +250,7 @@
     <Content Include="Presentation\ngApp\views\devHome.html" />
     <Content Include="Presentation\ngApp\views\devProfileEdit.html" />
     <Content Include="Presentation\ngApp\views\devProfile.html" />
+    <Content Include="Presentation\ngApp\views\employerHome.html" />
     <Content Include="Presentation\ngApp\views\employerProfile.html" />
     <Content Include="Presentation\ngApp\views\homePage.html" />
     <Content Include="Presentation\ngApp\views\jobDetails.html" />
@@ -328,11 +325,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602161745199_init.resx">
-      <DependentUpon>201602161745199_init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

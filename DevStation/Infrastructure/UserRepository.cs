@@ -1,4 +1,6 @@
 ﻿using DevStation.Domain;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -24,13 +26,27 @@ namespace DevStation.Infrastructure
                    select u;
         }
 
-        public IQueryable<ApplicationUser> SearchUsers(string searchTerm)
+        public IList<ApplicationUser> DevList()
         {
-            return from u in _db.Users
-                   where u.Active &&
-                   (u.FirstName.Contains(searchTerm) ||
-                   u.SkillSet.Contains(searchTerm))
-                   select u;                   
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_db));
+            var role = roleManager.FindByName("Developer");
+            return (from u in _db.Users
+                    where (u.Roles.Select(r => r.RoleId).Contains(role.Id))
+                    select u).ToList();
+           
+        }
+
+        public IList<ApplicationUser> SearchDevs(string searchTerm)
+        {
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_db));
+            var role = roleManager.FindByName("Developer");
+            return (from u in _db.Users
+                    where u.Active &&
+                    (u.Roles.Select(r => r.RoleId).Contains(role.Id)) &&
+                    (u.FirstName.Contains(searchTerm) ||
+                    u.LastName.Contains(searchTerm) ||
+                    u.SkillSet.Contains(searchTerm))
+                    select u).ToList();
         }
 
         public ApplicationUser UserByUserName(string userName)

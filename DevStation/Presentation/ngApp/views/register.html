@@ -23,11 +23,11 @@
             <label class="register-label">Please choose your role: </label>
 
             <label class="radio-inline register-label">
-                <input type="radio" ng-init="user.role = 'Developer'" name="role" />Developer
+                <input type="radio" ng-model="user.role" value="Developer" name="role" />Developer
             </label>
 
             <label class="radio-inline register-label">
-                <input type="radio" ng-init="user.role = 'Employer'" name="role" />Employer
+                <input type="radio" ng-model="user.role" value="Employer" name="role" />Employer
             </label>
         </div>
         <div class="modal-footer">
