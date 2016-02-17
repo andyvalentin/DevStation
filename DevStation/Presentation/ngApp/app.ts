@@ -67,6 +67,12 @@
                     controller: DevStation.Controllers.ProfileController,
                     controllerAs: "c"
                 })
+                .when("/employerhome",
+                {
+                    templateUrl: "Presentation/ngApp/views/employerHome.html",
+                    controller: DevStation.Controllers.DevSearchController,
+                    controllerAs: "c"
+                })
 
 
         });

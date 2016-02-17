@@ -1,4 +1,6 @@
 ﻿using DevStation.Domain;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -22,6 +24,16 @@ namespace DevStation.Infrastructure
             return from u in _db.Users
                    where u.Active
                    select u;
+        }
+
+        public IList<ApplicationUser> DevList()
+        {
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_db));
+            var role = roleManager.FindByName("Developer");
+            return (from u in _db.Users
+                    where (u.Roles.Select(r => r.RoleId).Contains(role.Id))
+                    select u).ToList();
+           
         }
 
         public IQueryable<ApplicationUser> SearchUsers(string searchTerm)

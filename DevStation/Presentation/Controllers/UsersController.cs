@@ -43,5 +43,16 @@ namespace DevStation.Presentation.Controllers
             }
             return BadRequest();
         }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/devs/list")]
+        public IHttpActionResult AllDevList() {
+            if (ModelState.IsValid) {
+
+                return Ok(_userService.AllDevList());
+            }
+            return BadRequest();
+        }
     }
 }
