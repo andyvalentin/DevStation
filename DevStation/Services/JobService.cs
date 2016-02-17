@@ -24,7 +24,7 @@ namespace DevStation.Services
                     {
                         Id = j.Id,
                         Title = j.Title,
-                        Description = j.Description.Substring(0, 20),
+                        Description = j.Description.Substring(0, 50),
                         Employer = (new EmployerDTO()
                         {
                             FirstName = j.Employer.FirstName,
@@ -47,7 +47,8 @@ namespace DevStation.Services
                             FirstName = j.Employer.FirstName,
                             LastName = j.Employer.LastName,
                             Img = j.Employer.Img,
-                            Company = j.Employer.Company
+                            Company = j.Employer.Company,
+                            Position = j.Employer.Position
                         })
                     }).ToList();
         }
@@ -67,7 +68,8 @@ namespace DevStation.Services
                     Email = jobToCopy.Employer.Email,
                     PhoneNumber = jobToCopy.Employer.PhoneNumber,
                     Img = jobToCopy.Employer.Img,
-                    Position = jobToCopy.Employer.Position
+                    Position = jobToCopy.Employer.Position,
+                    Company = jobToCopy.Employer.Company
                 })
             };
             return jobToReturn;

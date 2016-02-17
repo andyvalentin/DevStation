@@ -46,6 +46,7 @@ namespace DevStation.Services
             {
                 return userToReturn = new DeveloperDTO()
                 {
+                    UserName = userToMap.UserName,
                     FirstName = userToMap.FirstName,
                     LastName = userToMap.LastName,
                     Email = userToMap.Email,
@@ -65,6 +66,7 @@ namespace DevStation.Services
             {
                 return userToReturn = new DeveloperDTO()
                 {
+                    UserName = userToMap.UserName,
                     FirstName = userToMap.FirstName,
                     LastName = userToMap.LastName,
                     Email = userToMap.Email,
@@ -77,7 +79,7 @@ namespace DevStation.Services
                                      {
                                          Id = j.Id,
                                          Title = j.Title,
-                                         Description = j.Description
+                                         Description = j.Description.Substring(0, 25)
                                      }).ToList()
                 };
             }
@@ -85,6 +87,7 @@ namespace DevStation.Services
             {
                 return userToReturn = new DeveloperDTO()
                 {
+                    UserName = userToMap.UserName,
                     FirstName = userToMap.FirstName,
                     LastName = userToMap.LastName,
                     Email = userToMap.Email,
@@ -103,12 +106,13 @@ namespace DevStation.Services
                                  {
                                      Id = j.Id,
                                      Title = j.Title,
-                                     Description = j.Description
+                                     Description = j.Description.Substring(0, 15)
                                  }).ToList()
             };
         }
             return userToReturn = new DeveloperDTO()
             {
+                UserName = userToMap.UserName,
                 FirstName = userToMap.FirstName,
                 LastName = userToMap.LastName,
                 Email = userToMap.Email,
