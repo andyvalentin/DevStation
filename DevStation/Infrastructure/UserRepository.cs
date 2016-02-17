@@ -36,13 +36,17 @@ namespace DevStation.Infrastructure
            
         }
 
-        public IQueryable<ApplicationUser> SearchUsers(string searchTerm)
+        public IList<ApplicationUser> SearchDevs(string searchTerm)
         {
-            return from u in _db.Users
-                   where u.Active &&
-                   (u.FirstName.Contains(searchTerm) ||
-                   u.SkillSet.Contains(searchTerm))
-                   select u;                   
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_db));
+            var role = roleManager.FindByName("Developer");
+            return (from u in _db.Users
+                    where u.Active &&
+                    (u.Roles.Select(r => r.RoleId).Contains(role.Id)) &&
+                    (u.FirstName.Contains(searchTerm) ||
+                    u.LastName.Contains(searchTerm) ||
+                    u.SkillSet.Contains(searchTerm))
+                    select u).ToList();
         }
 
         public ApplicationUser UserByUserName(string userName)

@@ -6,18 +6,18 @@
         <div>
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
                 <li class="navbar-ul-li"><a href="#/user/devprofile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                <li class="navbar-ul-li"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li class="navbar-ul-li"><a href="#/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <div class="devhome-background">
-    <!--<div class="search">
-        <div class="search-{{search ? "flex-start" : "center"}}">
-            <input ng-model="searchTerm" ng-model-options="{ debounce: 300 }" placeholder="Search Through Available Developers" class="" ng-change="c.searchDevs(searchTerm)" />
+    <div class="">
+        <div>
+            <input ng-model="searchTerm" ng-model-options="{ debounce: 300 }" placeholder="Search Through Available Developers" class="form-control user-search" ng-change="c.searchDevs(searchTerm)" />
         </div>
-    </div>-->
+    </div>
     <br />
 
     <div class="row">
@@ -34,7 +34,6 @@
                     <h1>{{dev.phoneNumber}}</h1>
                     <p>{{dev.email}}</p>
                     <p>{{dev.skillSet}}</p>
-                    <!--<button ng-click="c.jobDetials(job.id)">Job Details</button>-->
                 </div>
             </div>
         </div>

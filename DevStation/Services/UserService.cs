@@ -36,6 +36,20 @@ namespace DevStation.Services
 
         }
 
+        public IList<DeveloperDTO> SearchDevs(string searchTerm)
+        {
+            return (from d in _userRepo.SearchDevs(searchTerm)
+                    select new DeveloperDTO()
+                    {
+                        Img = d.Img,
+                        FirstName = d.FirstName,
+                        LastName = d.LastName,
+                        PhoneNumber = d.PhoneNumber,
+                        Email = d.Email,
+                        SkillSet = d.SkillSet
+                    }).ToList();
+        }
+
         public void UpdateDevProfile(string firstName, string lastName, string phoneNumber, string email, string skillSet, string username)
         {
             var updatedUser = new ApplicationUser

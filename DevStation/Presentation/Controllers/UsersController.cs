@@ -54,5 +54,17 @@ namespace DevStation.Presentation.Controllers
             }
             return BadRequest();
         }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/devs/search/{searchTerm}")]
+        public IHttpActionResult SearchDevs(string searchTerm)
+        {
+            if (ModelState.IsValid) {
+                return Ok(_userService.SearchDevs(searchTerm));
+            }
+
+            return BadRequest();
+        }
     }
 }

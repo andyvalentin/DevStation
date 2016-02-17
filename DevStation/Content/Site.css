@@ -1,4 +1,10 @@
-﻿.form-control {
+﻿.user-search{
+   width: 600px;
+   height: 35px;
+   font-size: 25px;
+}
+
+.form-control {
     margin: 5px auto;
 }
 
