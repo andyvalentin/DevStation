@@ -3,6 +3,10 @@
     export class ProfileController {
         public user;
 
+        public toEdit() {
+            this.$location.path("/user/devprofile/edit");
+        }
+
         public updateDevProfile() {
             this.$http.post("api/user/profile/edit", this.user)
                 .then((response) => {
