@@ -209,6 +209,10 @@
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\JobRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />
+    <Compile Include="Migrations\201602172016268_init.cs" />
+    <Compile Include="Migrations\201602172016268_init.Designer.cs">
+      <DependentUpon>201602172016268_init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
@@ -247,6 +251,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Presentation\ngApp\.gitignore" />
+    <Content Include="Presentation\ngApp\views\addJob.html" />
     <Content Include="Presentation\ngApp\views\devHome.html" />
     <Content Include="Presentation\ngApp\views\devProfileEdit.html" />
     <Content Include="Presentation\ngApp\views\devProfile.html" />
@@ -308,6 +313,7 @@
     <TypeScriptCompile Include="Presentation\ngApp\app.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\authController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\devSearchController.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\employerProfileController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\homePageController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobDetailsController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobSearchController.ts" />
@@ -325,6 +331,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602172016268_init.resx">
+      <DependentUpon>201602172016268_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

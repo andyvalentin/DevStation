@@ -48,11 +48,12 @@ namespace DevStation.Migrations
                     Img = "http://www.almostsavvy.com/wp-content/uploads/2011/04/profile-photo.jpg",
                     Position = "CEO",
                     Company = "Coder Camps",
-                    Active = true
+                    Active = true,
+                    JobRequests = new Job[] { new Job() { Id = 1, Title = "Programmer", Description = "Program stuff", Active = true, Employer = andy }, new Job() { Id = 2, Title = "Teacher", Description = "Teach programming to kids", Active = true, Employer = andy }, new Job() { Id = 3, Title = "Cook", Description = "Cook meals for hungry programmers", Active = false, Employer = andy }
+            }
                 };
                 userManager.Create(andy, "Secret123!");
                 userManager.AddToRole(andy.Id, "Employer");
-
             }
 
             var employers = new ApplicationUser[1]
@@ -60,10 +61,11 @@ namespace DevStation.Migrations
                 andy
             };
 
-            var group = new Job { Id = 1, Title = "Group Project", Description = "Need to finish to graduate", Active = true, Employer = andy };
-            var catcher = new Job { Id = 2, Title = "Bug Catcher", Description = "Catch bugs in the code", Active = true, Employer = andy };
-            var frito = new Job { Id = 3, Title = "Detailer", Description = "Put chips on shelves", Employer = andy, Active = true };
-            var programmer = new Job { Id = 4, Title = "Programmer", Description = "Write full CRUD wep api apps", Active = true, Employer = andy };
+
+            Job group = new Job { Id = 4, Title = "Group Project", Description = "Need to finish to graduate", Active = true, Employer = andy };
+            Job catcher = new Job { Id = 5, Title = "Bug Catcher", Description = "Catch bugs in the code", Active = true, Employer = andy };
+            Job frito = new Job { Id = 6, Title = "Detailer", Description = "Put chips on shelves", Employer = andy, Active = true };
+            Job programmer = new Job { Id = 7, Title = "Programmer", Description = "Write full CRUD wep api apps", Active = true, Employer = andy };
 
             var jobs = new Job[]
             {
