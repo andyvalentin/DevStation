@@ -50,6 +50,15 @@ namespace DevStation.Services
                     }).ToList();
         }
 
+        public void DevAcceptJob(int id, string username) {
+            var currentJob = _jobRepo.JobById(id);            
+            var currentUser = _userRepo.UserByUserName(username);
+
+            currentUser.CurrentJob = currentJob;
+            _userRepo.SaveChanges();
+
+        }
+
         public void UpdateDevProfile(string firstName, string lastName, string phoneNumber, string email, string skillSet, string username)
         {
             var updatedUser = new ApplicationUser
