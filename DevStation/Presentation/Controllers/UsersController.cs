@@ -32,6 +32,19 @@ namespace DevStation.Presentation.Controllers
             return BadRequest("User could not be found");
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("api/users/employerProfile")]
+        public IHttpActionResult employerByUserName()
+        {
+            if(ModelState.IsValid)
+            {
+                var userToReturn = _userService.EmployerByUserName(User.Identity.Name);
+                return Ok(userToReturn);
+            }
+            return BadRequest("Employer could not be found");
+        }
+
         [HttpPost]
         [Authorize]
         [Route("api/user/profile/edit")]

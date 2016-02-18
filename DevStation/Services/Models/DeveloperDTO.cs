@@ -17,5 +17,6 @@ namespace DevStation.Services.Models
         public string Img { get; set; }
         public string SkillSet { get; set; }
         public string Position { get; set; }
+        public bool IsEmployer { get; set; }
     }
 }
