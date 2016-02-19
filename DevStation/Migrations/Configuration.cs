@@ -32,7 +32,7 @@ namespace DevStation.Migrations
             var userManager = new ApplicationUserManager(userStore);
 
 
-
+            
 
             ApplicationUser andy = userManager.FindByName("andyv");
 
@@ -71,7 +71,7 @@ namespace DevStation.Migrations
                 group,
                 catcher,
                 frito,
-                programmer
+                programmer                
             };
 
             context.Jobs.AddOrUpdate(u => u.Title, jobs);
@@ -97,11 +97,11 @@ namespace DevStation.Migrations
 
                 userManager.Create(tony, "Secret123!");
                 userManager.AddToRole(tony.Id, "Developer");
-
-
+   
+                
             }
 
-
+            
             context.SaveChanges();
         }
     }

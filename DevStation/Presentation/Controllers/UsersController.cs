@@ -83,5 +83,19 @@ namespace DevStation.Presentation.Controllers
 
             return BadRequest();
         }
+
+        [HttpPost]
+        [Authorize]
+        [Route("api/dev/acceptjob")]
+        public IHttpActionResult DevAcceptJob(Job job)
+        {
+            if (ModelState.IsValid)
+            {
+                _userService.DevAcceptJob(job.Id, User.Identity.Name);
+                return Ok();
+            }
+
+            return BadRequest();
+        }
     }
 }

@@ -22,6 +22,7 @@ namespace DevStation.Services
         public IList<JobDTO> ListJobs()
         {
             return (from j in _jobRepo.ListJobs()
+                    where j.Active
                     select new JobDTO()
                     {
                         Id = j.Id,
@@ -65,6 +66,7 @@ namespace DevStation.Services
                 Description = jobToCopy.Description,
                 Employer = (new EmployerDTO()
                 {
+                    UserName = jobToCopy.Employer.UserName,
                     FirstName = jobToCopy.Employer.FirstName,
                     LastName = jobToCopy.Employer.LastName,
                     Email = jobToCopy.Employer.Email,
