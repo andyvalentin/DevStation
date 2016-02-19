@@ -66,8 +66,6 @@ namespace DevStation.Services
 
         }
 
-        public void UpdateEmployerProfile()
-
         public EmployerDTO EmployerByUserName(string userName)
         {
             var userToMap = _userRepo.EmployerByUserName(userName);
