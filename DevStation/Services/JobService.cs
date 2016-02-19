@@ -20,6 +20,7 @@ namespace DevStation.Services
         public IList<JobDTO> ListJobs()
         {
             return (from j in _jobRepo.ListJobs()
+                    where j.Active
                     select new JobDTO()
                     {
                         Id = j.Id,

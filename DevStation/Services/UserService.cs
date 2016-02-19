@@ -53,7 +53,7 @@ namespace DevStation.Services
         public void DevAcceptJob(int id, string username) {
             var currentJob = _jobRepo.JobById(id);            
             var currentUser = _userRepo.UserByUserName(username);
-
+            currentJob.Active = false;
             currentUser.CurrentJob = currentJob;
             _userRepo.SaveChanges();
 
