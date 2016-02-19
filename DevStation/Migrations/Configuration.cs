@@ -49,8 +49,7 @@ namespace DevStation.Migrations
                     Position = "CEO",
                     Company = "Coder Camps",
                     Active = true,
-                    JobRequests = new Job[] { new Job() { Id = 1, Title = "Programmer", Description = "Program stuff", Active = true, Employer = andy }, new Job() { Id = 2, Title = "Teacher", Description = "Teach programming to kids", Active = true, Employer = andy }, new Job() { Id = 3, Title = "Cook", Description = "Cook meals for hungry programmers", Active = false, Employer = andy }
-            }
+                    
                 };
                 userManager.Create(andy, "Secret123!");
                 userManager.AddToRole(andy.Id, "Employer");
