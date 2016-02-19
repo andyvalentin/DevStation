@@ -60,7 +60,7 @@ namespace DevStation.Presentation.Controllers
         {
             if(ModelState.IsValid)
             {
-                _jobService.addJobAsEmployer(User.Identity.Name, jobToAdd.Title, jobToAdd.Description);
+                _jobService.AddJobAsEmployer(User.Identity.Name, jobToAdd.Title, jobToAdd.Description);
                 return Ok();
             }
             return BadRequest("Could not add the game");

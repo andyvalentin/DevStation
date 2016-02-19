@@ -98,6 +98,15 @@ namespace DevStation.Infrastructure
             _db.SaveChanges();
         }
 
+        public ApplicationUser DevByCurrentJob(int id)
+        {
+            return (from u in _db.Users
+                    where u.CurrentJob.Id == id
+                    select u)
+                    .Include(u => u.CurrentJob)
+                    .FirstOrDefault();
+        }
+
         public void SaveChanges()
         {                      
             try {
@@ -116,8 +125,5 @@ namespace DevStation.Infrastructure
                 }
             }
         }
-
-
-
     }
 }

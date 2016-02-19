@@ -45,7 +45,7 @@ namespace DevStation.Infrastructure
             return jobToReturn;
         }
 
-        public void addJob(Job jobToAdd)
+        public void AddJob(Job jobToAdd)
         {
             _db.Jobs.Add(jobToAdd);
             _db.SaveChanges();
