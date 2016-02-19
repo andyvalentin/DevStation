@@ -253,6 +253,7 @@
     <Content Include="Presentation\ngApp\views\devProfile.html" />
     <Content Include="Presentation\ngApp\views\employerHome.html" />
     <Content Include="Presentation\ngApp\views\employerProfile.html" />
+    <Content Include="Presentation\ngApp\views\employerProfileEdit.html" />
     <Content Include="Presentation\ngApp\views\homePage.html" />
     <Content Include="Presentation\ngApp\views\jobDetails.html" />
     <Content Include="Presentation\ngApp\views\login.html" />
@@ -307,6 +308,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Presentation\ngApp\app.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\addJobsController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\authController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\devSearchController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\employerProfileController.ts" />

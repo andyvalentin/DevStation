@@ -36,7 +36,7 @@ namespace DevStation.Migrations
 
             ApplicationUser andy = userManager.FindByName("andyv");
 
-            if(andy == null)
+            if (andy == null)
             {
                 andy = new ApplicationUser
                 {
@@ -48,9 +48,9 @@ namespace DevStation.Migrations
                     Img = "http://www.almostsavvy.com/wp-content/uploads/2011/04/profile-photo.jpg",
                     Position = "CEO",
                     Company = "Coder Camps",
-                    Active = true,
-                    
+                    Active = true
                 };
+
                 userManager.Create(andy, "Secret123!");
                 userManager.AddToRole(andy.Id, "Employer");
             }

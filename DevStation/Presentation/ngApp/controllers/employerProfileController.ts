@@ -2,12 +2,12 @@
     export class EmployerProfileController {
         public user;
 
-        public toEdit() {
-            this.$location.path("/user/devprofile/edit")
+        public toEmployerEdit() {
+            this.$location.path("/employerprofile/edit")
         }
 
         public toAddJob() {
-            this.$location.path("/user/employer/addjob")
+            this.$location.path("/employer/addjob")
         }
 
         constructor(private $http: ng.IHttpService, private $location: ng.ILocationService) {

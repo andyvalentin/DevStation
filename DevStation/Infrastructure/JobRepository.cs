@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 
@@ -42,6 +43,12 @@ namespace DevStation.Infrastructure
                    .Include(j => j.Employer)
                    .FirstOrDefault();
             return jobToReturn;
+        }
+
+        public void addJob(Job jobToAdd)
+        {
+            _db.Jobs.Add(jobToAdd);
+            _db.SaveChanges();
         }
     }
 }
