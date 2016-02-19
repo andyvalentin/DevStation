@@ -2,9 +2,10 @@
 
     export class ProfileController {
         public user;
+        public employer;
 
         public toEdit() {
-            this.$location.path("/user/devprofile/edit");
+            this.$location.path("/devprofile/edit");
         }
 
         public updateDevProfile() {
@@ -15,11 +16,19 @@
             this.$location.path("/user/devprofile/");
         }
 
+
         public getUserProfile() {
             this.$http.get("api/users/profile")
                 .then((reponse) => {
                     this.user = reponse.data;
                 });
+        }
+
+        public getEmployerProfile() {
+            this.$http.get(`/api/users/employerProfile`)
+                .then((response) => {
+                    this.employer = response.data;
+                })
         }
 
         public logout() {
@@ -29,6 +38,7 @@
 
         constructor(private $http: ng.IHttpService, private $window: ng.IWindowService, private $location: ng.ILocationService) {
             this.getUserProfile();
+            this.getEmployerProfile();
         }
 
     }

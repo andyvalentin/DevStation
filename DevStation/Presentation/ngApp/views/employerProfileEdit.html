@@ -7,7 +7,7 @@
         <div>
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
                 <li class="navbar-ul-li"><a href="" class="navbar-btn"><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
-                <li class="navbar-ul-li"><a href="/#/devprofile" class="navbar-btn"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                <li class="navbar-ul-li"><a href="/#/employerprofile" class="navbar-btn"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                 <li class="navbar-ul-li"><a href="" ng-click="c.logout()" class="navbar-btn"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
@@ -16,28 +16,31 @@
 
 <hr />
 
-<div class="edit-div">
+<div class="">
     <div class="edit-input">
-        <form ng-submit="c.updateDevProfile()" class="well">
+        <form ng-submit="" class="well" id="editBorder">
 
             <h1>Edit Profile</h1>
             <hr />
             <label>First Name</label>
-            <input ng-model="c.user.firstName" class="form-control profile-edit" />
+            <input ng-model="c.employer.firstName" class="form-control profile-edit" />
 
             <label>LastName</label>
-            <input ng-model="c.user.lastName" class="form-control profile-edit" />
+            <input ng-model="c.employer.lastName" class="form-control profile-edit" />
 
             <label>Email</label>
-            <input ng-model="c.user.email" class="form-control profile-edit" />
+            <input ng-model="c.employer.email" class="form-control profile-edit" />
 
             <label>Phone Number</label>
-            <input ng-model="c.user.phoneNumber" class="form-control profile-edit" />
+            <input ng-model="c.employer.phoneNumber" class="form-control profile-edit" />
 
-            <label>Skill Set</label>
-            <textarea ng-model="c.user.skillSet" class="form-control profile-edit"></textarea>
+            <label>Company</label>
+            <input ng-model="c.employer.company" class="form-control profile-edit"/>
+
+            <label>Position</label>
+            <input ng-model="c.employer.position" class="form-control profile-edit"/>
 
             <input type="submit" class="btn btn-success" value="Save Changes" />
         </form>
-    </div>  
+    </div>
 </div>

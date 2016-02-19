@@ -11,10 +11,12 @@ namespace DevStation.Services
     public class JobService
     {
         private JobRepository _jobRepo;
+        private UserRepository _userRepo;
 
-        public JobService(JobRepository jobRepo)
+        public JobService(JobRepository jobRepo, UserRepository userRepo)
         {
             _jobRepo = jobRepo;
+            _userRepo = userRepo;
         }
         
         public IList<JobDTO> ListJobs()
@@ -73,6 +75,20 @@ namespace DevStation.Services
                 })
             };
             return jobToReturn;
+        }
+
+        public void addJobAsEmployer(string userName, string title, string description)
+        {
+            var user = _userRepo.EmployerByUserName(userName);
+            var jobToAdd = new Job()
+            {
+                Title = title,
+                Description = description,
+                Employer = user,
+                Active = true
+            };
+            user.JobRequests.Add(jobToAdd);
+            _jobRepo.addJob(jobToAdd);
         }
     }
 }

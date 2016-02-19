@@ -1,4 +1,5 @@
-﻿using DevStation.Infrastructure;
+﻿using DevStation.Domain;
+using DevStation.Infrastructure;
 using DevStation.Services;
 using DevStation.Services.Models;
 using System;
@@ -30,7 +31,7 @@ namespace DevStation.Presentation.Controllers
         [HttpGet]
         [Authorize]
         [Route("api/jobs/list")]
-        public IHttpActionResult listJobs()
+        public IHttpActionResult ListJobs()
         {
             if(ModelState.IsValid)
             {
@@ -52,5 +53,17 @@ namespace DevStation.Presentation.Controllers
             return BadRequest("JobById yielded no results");
         }
 
+        [HttpPost]
+        [Authorize]
+        [Route("api/jobs/add")]
+        public IHttpActionResult AddJob(Job jobToAdd)
+        {
+            if(ModelState.IsValid)
+            {
+                _jobService.addJobAsEmployer(User.Identity.Name, jobToAdd.Title, jobToAdd.Description);
+                return Ok();
+            }
+            return BadRequest("Could not add the game");
+        }
     }
 }

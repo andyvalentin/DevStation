@@ -59,6 +59,21 @@ namespace DevStation.Infrastructure
                     .FirstOrDefault();
         }
 
+        public ApplicationUser EmployerByUserName(string userName)
+        {
+            var userToReturn = (from u in _db.Users
+                                where u.Active && u.UserName == userName
+                                select u)
+                                .Include(u => u.JobRequests)
+                                .FirstOrDefault();
+            return userToReturn;
+        }
+
+        public void UpdateEmployer(ApplicationUser employer)
+        {
+
+        }
+
         public void UpdateUser(ApplicationUser user) {
 
             var userToEdit = UserByUserName(user.UserName);
@@ -71,6 +86,5 @@ namespace DevStation.Infrastructure
    
             _db.SaveChanges();
         }
-
     }
 }

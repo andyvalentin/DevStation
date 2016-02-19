@@ -32,11 +32,11 @@ namespace DevStation.Migrations
             var userManager = new ApplicationUserManager(userStore);
 
 
-            
+
 
             ApplicationUser andy = userManager.FindByName("andyv");
 
-            if(andy == null)
+            if (andy == null)
             {
                 andy = new ApplicationUser
                 {
@@ -48,10 +48,9 @@ namespace DevStation.Migrations
                     Img = "http://www.almostsavvy.com/wp-content/uploads/2011/04/profile-photo.jpg",
                     Position = "CEO",
                     Company = "Coder Camps",
-                    Active = true,
-                    JobRequests = new Job[] { new Job() { Id = 1, Title = "Programmer", Description = "Program stuff", Active = true, Employer = andy }, new Job() { Id = 2, Title = "Teacher", Description = "Teach programming to kids", Active = true, Employer = andy }, new Job() { Id = 3, Title = "Cook", Description = "Cook meals for hungry programmers", Active = false, Employer = andy }
-            }
+                    Active = true
                 };
+
                 userManager.Create(andy, "Secret123!");
                 userManager.AddToRole(andy.Id, "Employer");
             }
@@ -72,7 +71,7 @@ namespace DevStation.Migrations
                 group,
                 catcher,
                 frito,
-                programmer                
+                programmer
             };
 
             context.Jobs.AddOrUpdate(u => u.Title, jobs);
@@ -98,11 +97,11 @@ namespace DevStation.Migrations
 
                 userManager.Create(tony, "Secret123!");
                 userManager.AddToRole(tony.Id, "Developer");
-   
-                
+
+
             }
 
-            
+
             context.SaveChanges();
         }
     }

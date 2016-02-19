@@ -57,6 +57,10 @@ namespace DevStation.Presentation.Controllers
             return BadRequest();
         }
 
+        [HttpPost]
+        [Authorize]
+        [Route("api/user/employerprofile/edit")]
+
         [HttpGet]
         [Authorize]
         [Route("api/devs/list")]

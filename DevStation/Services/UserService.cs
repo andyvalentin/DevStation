@@ -66,9 +66,11 @@ namespace DevStation.Services
 
         }
 
+        public void UpdateEmployerProfile()
+
         public EmployerDTO EmployerByUserName(string userName)
         {
-            var userToMap = _userRepo.UserByUserName(userName);
+            var userToMap = _userRepo.EmployerByUserName(userName);
             EmployerDTO userToReturn;
             if (userToMap.JobRequests != null)
             {
@@ -89,7 +91,7 @@ namespace DevStation.Services
                                    {
                                        Id = j.Id,
                                        Title = j.Title,
-                                       Description = j.Title
+                                       Description = j.Description
                                    }).ToList()
                 };
             }
