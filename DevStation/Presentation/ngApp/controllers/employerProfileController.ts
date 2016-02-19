@@ -1,9 +1,16 @@
 ﻿namespace DevStation.Controllers {
     export class EmployerProfileController {
-        public user;
+        public employer;
 
         public toEmployerEdit() {
             this.$location.path("/employerprofile/edit")
+        }
+
+        public editEmployerProfile() {
+            this.$http.post(`api/user/employerprofile/edit`, this.employer)
+                .then((response) => {
+                    this.$location.path("/employerprofile")
+                })
         }
 
         public toAddJob() {
@@ -13,7 +20,7 @@
         constructor(private $http: ng.IHttpService, private $location: ng.ILocationService) {
             this.$http.get(`/api/users/employerProfile`)
                 .then((response) => {
-                    this.user = response.data;
+                    this.employer = response.data;
                 })
         }
     }
