@@ -85,7 +85,7 @@
                 })
                 .when("/employerprofile/edit", {
                     templateUrl: "Presentation/ngApp/views/employerProfileEdit.html",
-                    controller: DevStation.Controllers.ProfileController,
+                    controller: DevStation.Controllers.EmployerProfileController,
                     controllerAs: "c"
                 })
 

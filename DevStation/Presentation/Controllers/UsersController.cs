@@ -60,6 +60,15 @@ namespace DevStation.Presentation.Controllers
         [HttpPost]
         [Authorize]
         [Route("api/user/employerprofile/edit")]
+        public IHttpActionResult UpdateEmployerProfile(ApplicationUser employer)
+        {
+            if (ModelState.IsValid)
+            {
+                _userService.UpdateEmployerProfile(employer, User.Identity.Name);
+                return Ok();
+            }
+            return BadRequest("Current Employer was not edited");
+        }
 
         [HttpGet]
         [Authorize]

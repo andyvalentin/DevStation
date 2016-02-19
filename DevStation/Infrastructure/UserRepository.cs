@@ -71,9 +71,18 @@ namespace DevStation.Infrastructure
             return userToReturn;
         }
 
-        public void UpdateEmployer(ApplicationUser employer)
+        public void UpdateEmployer(ApplicationUser employer, string userName)
         {
+            var userToEdit = UserByUserName(userName);
 
+            userToEdit.FirstName = employer.FirstName;
+            userToEdit.LastName = employer.LastName;
+            userToEdit.Email = employer.Email;
+            userToEdit.PhoneNumber = employer.PhoneNumber;
+            userToEdit.Company = employer.Company;
+            userToEdit.Position = employer.Position;
+
+            _db.SaveChanges();
         }
 
         public void UpdateUser(ApplicationUser user) {
