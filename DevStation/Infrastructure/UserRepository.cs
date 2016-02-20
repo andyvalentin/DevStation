@@ -64,7 +64,7 @@ namespace DevStation.Infrastructure
         public ApplicationUser EmployerByUserName(string userName)
         {
             var userToReturn = (from u in _db.Users
-                                where u.Active && u.UserName == userName
+                                where u.UserName == userName
                                 select u)
                                 .Include(u => u.JobRequests)
                                 .FirstOrDefault();

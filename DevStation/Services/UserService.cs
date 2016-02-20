@@ -98,12 +98,13 @@ namespace DevStation.Services
                     Position = userToMap.Position,
                     IsEmployer = true,
                     JobRequests = (from j in userToMap.JobRequests
-                                   where j.Active
+                                   where j.Complete == false
                                    select new JobDTO()
                                    {
                                        Id = j.Id,
                                        Title = j.Title,
-                                       Description = j.Description
+                                       Description = j.Description.Substring(0, 25) + ("..."),
+                                       Complete = false
                                    }).ToList()
                 };
             }
@@ -165,7 +166,7 @@ namespace DevStation.Services
                                      {
                                          Id = j.Id,
                                          Title = j.Title,
-                                         Description = j.Description.Substring(0, 25)
+                                         Description = j.Description.Substring(0,25) + ("...")
                                      }).ToList()
                 };
             }
@@ -193,7 +194,7 @@ namespace DevStation.Services
                                      {
                                          Id = j.Id,
                                          Title = j.Title,
-                                         Description = j.Description.Substring(0, 15)
+                                         Description = j.Description.Substring(0, 15) + ("...")
                                      }).ToList()
                 };
             }
@@ -209,6 +210,17 @@ namespace DevStation.Services
                 SkillSet = userToMap.SkillSet,
                 IsEmployer = false
             };
+        }
+
+        public void FinishJob(int id, string userName)
+        {
+            var completedJob = _jobRepo.JobById(id);
+            var user = _userRepo.UserByUserName(userName);
+
+            user.CurrentJob.Complete = true;
+            user.CompletedJobs.Add(completedJob);
+            user.CurrentJob = null;
+            _userRepo.SaveChanges();
         }
     }
 }

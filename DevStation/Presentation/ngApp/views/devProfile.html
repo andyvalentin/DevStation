@@ -7,7 +7,7 @@
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
                 <li class="navbar-ul-li"><a href=""><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
                 <li class="navbar-ul-li"><a href="#/devhome"><span class="glyphicon glyphicon-list"></span> Job List</a></li>
-                <li class="navbar-ul-li"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li class="navbar-ul-li"><a href="#/" ng-click="c.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </div>
@@ -82,6 +82,8 @@
                                     <label>{{c.user.currentJob.title}}</label>
                                     <br />
                                     <label>{{c.user.currentJob.description}}</label>
+                                    <br />
+                                    <button ng-click="c.finishJob(c.user.currentJob.id)">Finish Job</button>
                                 </div>
                             </div>
                         </div>

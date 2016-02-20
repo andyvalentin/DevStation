@@ -13,6 +13,7 @@ namespace DevStation.Domain
         public string Title { get; set; }
         public string Description { get; set; }
         public ApplicationUser Employer { get; set; }
+        public bool Complete { get; set; } = false;
         public bool Active { get; set; } = true;
     }
 }

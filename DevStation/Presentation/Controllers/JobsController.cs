@@ -58,12 +58,29 @@ namespace DevStation.Presentation.Controllers
         [Route("api/jobs/add")]
         public IHttpActionResult AddJob(Job jobToAdd)
         {
+            if (jobToAdd.Description.Length >= 25)
+            {
+                if (ModelState.IsValid)
+                {
+                    _jobService.AddJobAsEmployer(User.Identity.Name, jobToAdd.Title, jobToAdd.Description);
+                    return Ok();
+                }
+                return BadRequest("Could not add the game");
+            }
+            return BadRequest("must be at least 25 characters long");
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/jobs/completejob/{id}")]
+        public IHttpActionResult CompleteJob(int id)
+        {
             if(ModelState.IsValid)
             {
-                _jobService.AddJobAsEmployer(User.Identity.Name, jobToAdd.Title, jobToAdd.Description);
+                _jobService.CompleteJob(id);
                 return Ok();
             }
-            return BadRequest("Could not add the game");
+            return BadRequest();
         }
     }
 }

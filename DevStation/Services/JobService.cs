@@ -87,7 +87,8 @@ namespace DevStation.Services
                 Title = title,
                 Description = description,
                 Employer = user,
-                Active = true
+                Active = true,
+                Complete = false
             };
             user.JobRequests.Add(jobToAdd);
             _jobRepo.AddJob(jobToAdd);
@@ -95,11 +96,16 @@ namespace DevStation.Services
 
         public void CompleteJob(int id)
         {
-            var completedJob = _jobRepo.JobById(id);
             var dev = _userRepo.DevByCurrentJob(id);
+            var completedJob = _jobRepo.JobById(id);
 
-            dev.CurrentJob = null;
-            dev.CompletedJobs.Add(completedJob);
+            if(dev != null)
+            {
+                dev.CompletedJobs.Add(completedJob);
+                dev.CurrentJob = null;
+                completedJob.Complete = true;
+                _userRepo.SaveChanges();
+            }
         }
     }
 }

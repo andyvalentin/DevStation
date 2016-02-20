@@ -36,6 +36,13 @@
             this.$location.path("/");
         }
 
+        public finishJob(id) {
+            this.$http.get(`api/users/completeJob/${id}`)
+                .then((response) => {
+                    
+                })
+        }
+
         constructor(private $http: ng.IHttpService, private $window: ng.IWindowService, private $location: ng.ILocationService) {
             this.getUserProfile();
             this.getEmployerProfile();

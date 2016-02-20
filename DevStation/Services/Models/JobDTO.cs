@@ -11,5 +11,6 @@ namespace DevStation.Services.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public EmployerDTO Employer { get; set; }
+        public bool Complete { get; set; } = false;
     }
 }

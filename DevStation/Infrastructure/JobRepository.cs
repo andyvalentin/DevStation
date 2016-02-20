@@ -37,12 +37,11 @@ namespace DevStation.Infrastructure
 
         public Job JobById(int id)
         {
-            var jobToReturn = (from j in ListJobs()
-                   where j.Active && j.Id == id
+            return (from j in _db.Jobs
+                   where j.Complete == false && j.Id == id
                    select j)
                    .Include(j => j.Employer)
                    .FirstOrDefault();
-            return jobToReturn;
         }
 
         public void AddJob(Job jobToAdd)

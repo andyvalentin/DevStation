@@ -13,10 +13,12 @@ namespace DevStation.Presentation.Controllers
     public class UsersController : ApiController
     {
         private UserService _userService;
+        private JobService _jobService;
 
         public UsersController(UserService userService, JobService jobService)
         {
             _userService = userService;
+            _jobService = jobService;
         }
 
         [HttpGet]
@@ -35,7 +37,7 @@ namespace DevStation.Presentation.Controllers
         [HttpGet]
         [Authorize]
         [Route("api/users/employerProfile")]
-        public IHttpActionResult employerByUserName()
+        public IHttpActionResult EmployerByUserName()
         {
             if(ModelState.IsValid)
             {
@@ -104,6 +106,19 @@ namespace DevStation.Presentation.Controllers
                 return Ok();
             }
 
+            return BadRequest();
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/users/completeJob/{id}")]
+        public IHttpActionResult CompleteJob(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                _userService.FinishJob(id, User.Identity.Name);
+                return Ok();
+            }
             return BadRequest();
         }
     }
