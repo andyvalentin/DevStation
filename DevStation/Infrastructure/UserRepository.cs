@@ -58,6 +58,7 @@ namespace DevStation.Infrastructure
                     select u)
                     .Include(u => u.CurrentJob)
                     .Include(u => u.CompletedJobs)
+                    .Include(u => u.Roles)
                     .FirstOrDefault();
         }
 

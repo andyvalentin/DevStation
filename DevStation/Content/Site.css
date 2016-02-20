@@ -1,4 +1,31 @@
-﻿.user-search{
+﻿.homepage-text{
+    color: white;
+    top: 30%;
+    font-size: 25px;
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.homepage-div {
+    display: inline-block;
+    margin-left: 105px;
+}
+
+.homepage-bullets{
+    list-style-type: none;
+    font-size: 22px;
+    margin: 25px;
+}
+
+body.modal-open {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.user-search{
    width: 600px;
    height: 35px;
    font-size: 25px;
@@ -68,12 +95,17 @@ button {
     border: 1px red solid;
 }*/
 
-.homepage-div {
-    height: 565px;
+.homepage-image {
+    position: relative;
+    height: 80vh;
     width: auto;
-    background: linear-gradient( rgba(73, 155, 234, 0.80), rgba(73, 155, 234, 0.60) ), url("../Presentation/ngApp/img/trainStation.jpg");
+    background: linear-gradient( rgba(73, 155, 234, 0.90), rgba(73, 155, 234, 0.75) ), url("../Presentation/ngApp/img/trainStation.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .devhome-background{
