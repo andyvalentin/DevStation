@@ -79,7 +79,7 @@ namespace DevStation.Services
             return jobToReturn;
         }
 
-        public void addJobAsEmployer(string userName, string title, string description)
+        public void AddJobAsEmployer(string userName, string title, string description)
         {
             var user = _userRepo.EmployerByUserName(userName);
             var jobToAdd = new Job()
@@ -87,10 +87,25 @@ namespace DevStation.Services
                 Title = title,
                 Description = description,
                 Employer = user,
-                Active = true
+                Active = true,
+                Complete = false
             };
             user.JobRequests.Add(jobToAdd);
-            _jobRepo.addJob(jobToAdd);
+            _jobRepo.AddJob(jobToAdd);
+        }
+
+        public void CompleteJob(int id)
+        {
+            var dev = _userRepo.DevByCurrentJob(id);
+            var completedJob = _jobRepo.JobById(id);
+
+            if(dev != null)
+            {
+                dev.CompletedJobs.Add(completedJob);
+                dev.CurrentJob = null;
+                completedJob.Complete = true;
+                _userRepo.SaveChanges();
+            }
         }
     }
 }

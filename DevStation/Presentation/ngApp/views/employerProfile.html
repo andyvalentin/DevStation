@@ -76,12 +76,16 @@
                                             <tr>
                                                 <th>Job</th>
                                                 <th>Description</th>
+                                                <th>Complete Job</th>
                                             </tr>
                                         </thead>
                                         <tbody ng-repeat="job in c.employer.jobRequests">
                                             <tr>
-                                                <td>{{employer.title}}</td>
-                                                <td>{{employer.description}}</td>
+                                                <td>{{job.title}}</td>
+                                                <td>{{job.description}}</td>
+                                                <td>
+                                                    <button ng-click="c.completeJob(job.id)">Complete</button>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

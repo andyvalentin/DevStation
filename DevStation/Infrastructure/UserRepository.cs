@@ -64,7 +64,7 @@ namespace DevStation.Infrastructure
         public ApplicationUser EmployerByUserName(string userName)
         {
             var userToReturn = (from u in _db.Users
-                                where u.Active && u.UserName == userName
+                                where u.UserName == userName
                                 select u)
                                 .Include(u => u.JobRequests)
                                 .FirstOrDefault();
@@ -98,6 +98,15 @@ namespace DevStation.Infrastructure
             _db.SaveChanges();
         }
 
+        public ApplicationUser DevByCurrentJob(int id)
+        {
+            return (from u in _db.Users
+                    where u.CurrentJob.Id == id
+                    select u)
+                    .Include(u => u.CurrentJob)
+                    .FirstOrDefault();
+        }
+
         public void SaveChanges()
         {                      
             try {
@@ -116,8 +125,5 @@ namespace DevStation.Infrastructure
                 }
             }
         }
-
-
-
     }
 }
