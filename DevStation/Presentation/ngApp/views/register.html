@@ -31,7 +31,8 @@
             </label>
         </div>
         <div class="modal-footer">
-            <input type="submit" value="Register" class="btn btn-primary" />
+            <input type="submit" value="Register" class="btn btn-primary" ng-click="$close()"/>
+            <input type="button" class="btn" ng-click="$dismiss()" value="Cancel" />
         </div>      
     </form>
 </div>
