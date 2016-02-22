@@ -25,7 +25,7 @@ body.modal-open {
 
 .user-search{
    width: 600px;
-   height: 35px;
+   height: 45px;
    font-size: 25px;
 }
 
@@ -108,21 +108,12 @@ button {
 
 .background{
     background: linear-gradient( rgba(73, 155, 234, 0.90), rgba(73, 155, 234, 0.75) ), url("../Presentation/ngApp/img/trainStation.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
+    background-size: 120%;
     border-radius: 5px;
-    height: 100vh;
-}
-
-.search-background{
-    background: linear-gradient( rgba(73, 155, 234, 0.90), rgba(73, 155, 234, 0.75) ), url("../Presentation/ngApp/img/trainStation.jpg");
-    /*background-color: #499bea;*/
+    min-height: 100vh;
     height: auto;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 5px;
 }
-
 
 p {
     font-size: 200%;
