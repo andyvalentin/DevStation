@@ -208,6 +208,7 @@
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\JobRepository.cs" />
+    <Compile Include="Infrastructure\MessageRepository.cs" />
     <Compile Include="Infrastructure\UserRepository.cs" />
     <Compile Include="Migrations\201602202039100_init.cs" />
     <Compile Include="Migrations\201602202039100_init.Designer.cs">
@@ -220,16 +221,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\JobsController.cs" />
+    <Compile Include="Presentation\Controllers\MessagesController.cs" />
     <Compile Include="Presentation\Controllers\UsersController.cs" />
     <Compile Include="Presentation\Models\Identity\AccountBindingModels.cs" />
     <Compile Include="Presentation\Models\Identity\AccountViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Identity\ApplicationOAuthProvider.cs" />
     <Compile Include="Presentation\Models\Identity\ChallengeResult.cs" />
+    <Compile Include="Services\ApplicationUserManagerService.cs" />
     <Compile Include="Services\JobService.cs" />
+    <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\Models\DeveloperDTO.cs" />
     <Compile Include="Services\Models\EmployerDTO.cs" />
     <Compile Include="Services\Models\JobDTO.cs" />
+    <Compile Include="Services\Models\MessageDTO.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -259,6 +264,7 @@
     <Content Include="Presentation\ngApp\views\employerProfile.html" />
     <Content Include="Presentation\ngApp\views\employerProfileEdit.html" />
     <Content Include="Presentation\ngApp\views\homePage.html" />
+    <Content Include="Presentation\ngApp\views\devInbox.html" />
     <Content Include="Presentation\ngApp\views\jobDetails.html" />
     <Content Include="Presentation\ngApp\views\login.html" />
     <Content Include="Presentation\ngApp\views\register.html" />
@@ -317,6 +323,7 @@
     <TypeScriptCompile Include="Presentation\ngApp\controllers\devSearchController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\employerProfileController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\homePageController.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\inboxController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobDetailsController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobSearchController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\profileController.ts" />

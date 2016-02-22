@@ -5,6 +5,7 @@
         public acceptJob() {
             this.$http.post("api/dev/acceptjob", this.job)
                 .then((response) => {
+                    this.$location.path("/devhome")
                 });
         }
 

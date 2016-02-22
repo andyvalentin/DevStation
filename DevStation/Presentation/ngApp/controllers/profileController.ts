@@ -13,7 +13,7 @@
                 .then((response) => {
                 })
             console.log("Function works");
-            this.$location.path("/user/devprofile/");
+            this.$location.path("/devprofile/");
         }
 
 
@@ -34,8 +34,12 @@
         public finishJob(id) {
             this.$http.get(`api/users/completeJob/${id}`)
                 .then((response) => {
-                    
+                    this.getUserProfile();
                 })
+        }
+
+        public jobDetails(id: number) {
+            this.$location.path(`/job/details/${id}`);
         }
 
         public logout() {

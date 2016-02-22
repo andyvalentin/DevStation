@@ -17,7 +17,7 @@
                 });
         }
 
-        public jobDetials(id: number) {
+        public jobDetails(id: number) {
             this.$location.path(`/job/details/${id}`);
         }
 

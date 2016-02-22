@@ -143,3 +143,7 @@ label {
 #editBorder {
     border: 40px groove dodgerblue;
 }
+
+#wordbreak {
+    word-wrap:break-word;
+}

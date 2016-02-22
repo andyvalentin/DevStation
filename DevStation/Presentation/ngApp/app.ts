@@ -15,7 +15,7 @@
                 },
                 responseError: (response) => {
                     if (response.status === 401) {
-                        $location.path('/login');
+                        $location.path('/');
                     }
                     return response || $q.when(response);
                 }
@@ -32,7 +32,7 @@
                     controller: DevStation.Controllers.HomePageController,
                     controllerAs: 'c'
                 })
-                .when("/devhome", {
+                .when("/dev/home", {
                     templateUrl: "Presentation/ngApp/views/devHome.html",
                     controller: DevStation.Controllers.JobSearchController,
                     controllerAs: "c"
@@ -55,7 +55,7 @@
                     controller: DevStation.Controllers.JobDetailsController,
                     controllerAs: "c"
                 })
-                .when("/devprofile", 
+                .when("/devprofile",
                 {
                     templateUrl: "Presentation/ngApp/views/devProfile.html",
                     controller: DevStation.Controllers.ProfileController,
@@ -88,6 +88,10 @@
                     controller: DevStation.Controllers.EmployerProfileController,
                     controllerAs: "c"
                 })
-
+                .when("/dev/inbox", {
+                    templateUrl: "Presentation/ngApp/views/devinbox.html",
+                    controller: DevStation.Controllers.InboxController,
+                    controllerAs: "c"
+                })
         });
 }

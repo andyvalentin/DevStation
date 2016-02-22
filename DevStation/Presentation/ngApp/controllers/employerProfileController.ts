@@ -21,7 +21,10 @@
         public completeJob(id:number) {
             this.$http.get(`api/jobs/completejob/${id}`)
                 .then((response) => {
-                    
+                    this.$http.get(`api/users/employerProfile`)
+                        .then((response) => {
+                            this.employer = response.data;
+                        })
                 })
         }
 

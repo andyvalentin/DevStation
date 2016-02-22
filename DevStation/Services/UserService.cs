@@ -33,7 +33,6 @@ namespace DevStation.Services
                         Email = d.Email,
                         SkillSet = d.SkillSet
                     }).ToList();
-
         }
 
         public IList<DeveloperDTO> SearchDevs(string searchTerm)

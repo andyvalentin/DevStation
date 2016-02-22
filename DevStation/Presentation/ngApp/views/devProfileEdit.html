@@ -6,7 +6,7 @@
 
         <div>
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
-                <li class="navbar-ul-li"><a href="" class="navbar-btn"><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
+                <li class="navbar-ul-li"><a href="#/dev/inbox" class="navbar-btn"><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
                 <li class="navbar-ul-li"><a href="/#/devprofile" class="navbar-btn"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                 <li class="navbar-ul-li"><a href="" ng-click="c.logout()" class="navbar-btn"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
@@ -37,7 +37,10 @@
             <label>Skill Set</label>
             <textarea ng-model="c.user.skillSet" class="form-control profile-edit"></textarea>
 
-            <input type="submit" class="btn btn-success" value="Save Changes" />
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Save Changes" />
+                <input type="button" class="btn" ng-click="$dismiss()" value="Cancel"/>
+            </div>            
         </form>
     </div>  
 </div>
