@@ -23,7 +23,7 @@
             })
                 .then((response) => {
                     this.$window.localStorage.setItem('token', response.data['access_token']);
-                    this.$location.path('/devprofile');
+                    this.$location.path('/dev/profile');
                 })
                 .catch((response) => {
                     console.log(response);

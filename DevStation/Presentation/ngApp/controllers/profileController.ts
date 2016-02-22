@@ -5,7 +5,7 @@
         public employer;
 
         public toEdit() {
-            this.$location.path("/devprofile/edit");
+            this.$location.path("/dev/profile/edit");
         }
 
         public updateDevProfile() {

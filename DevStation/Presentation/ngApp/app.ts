@@ -37,43 +37,31 @@
                     controller: DevStation.Controllers.JobSearchController,
                     controllerAs: "c"
                 })
-                .when('/register',
-                {
-                    templateUrl: 'Presentation/ngApp/views/register.html',
-                    controller: DevStation.Controllers.AuthController,
-                    controllerAs: 'c'
-                })
-                .when('/login',
-                {
-                    templateUrl: 'Presentation/ngApp/views/login.html',
-                    controller: DevStation.Controllers.AuthController,
-                    controllerAs: 'c'
-                })
                 .when("/job/details/:id",
                 {
                     templateUrl: "Presentation/ngApp/views/jobDetails.html",
                     controller: DevStation.Controllers.JobDetailsController,
                     controllerAs: "c"
                 })
-                .when("/devprofile",
+                .when("/dev/profile",
                 {
                     templateUrl: "Presentation/ngApp/views/devProfile.html",
                     controller: DevStation.Controllers.ProfileController,
                     controllerAs: "c"
                 })
-                .when("/devprofile/edit",
+                .when("/dev/profile/edit",
                 {
                     templateUrl: "Presentation/ngApp/views/devProfileEdit.html",
                     controller: DevStation.Controllers.ProfileController,
                     controllerAs: "c"
                 })
-                .when("/employerhome",
+                .when("/employer/home",
                 {
                     templateUrl: "Presentation/ngApp/views/employerHome.html",
                     controller: DevStation.Controllers.DevSearchController,
                     controllerAs: "c"
                 })
-                .when("/employerprofile", {
+                .when("/employer/profile", {
                     templateUrl: "Presentation/ngApp/views/employerProfile.html",
                     controller: DevStation.Controllers.EmployerProfileController,
                     controllerAs: "c"
@@ -83,7 +71,7 @@
                     controller: DevStation.Controllers.AddJobsController,
                     controllerAs: "c"
                 })
-                .when("/employerprofile/edit", {
+                .when("/employer/profile/edit", {
                     templateUrl: "Presentation/ngApp/views/employerProfileEdit.html",
                     controller: DevStation.Controllers.EmployerProfileController,
                     controllerAs: "c"

@@ -58,16 +58,20 @@ namespace DevStation.Presentation.Controllers
         [Route("api/jobs/add")]
         public IHttpActionResult AddJob(Job jobToAdd)
         {
-            if (jobToAdd.Description.Length >= 25)
+            if(jobToAdd != null)
             {
-                if (ModelState.IsValid)
+                if (jobToAdd.Description.Length >= 25)
                 {
-                    _jobService.AddJobAsEmployer(User.Identity.Name, jobToAdd.Title, jobToAdd.Description);
-                    return Ok();
+                    if (ModelState.IsValid)
+                    {
+                        _jobService.AddJobAsEmployer(User.Identity.Name, jobToAdd.Title, jobToAdd.Description);
+                        return Ok();
+                    }
+                    return BadRequest("Could not add the game");
                 }
-                return BadRequest("Could not add the game");
+                return BadRequest("must be at least 25 characters long");
             }
-            return BadRequest("must be at least 25 characters long");
+            return BadRequest("Must put in a job");
         }
 
         [HttpGet]
