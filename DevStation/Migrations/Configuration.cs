@@ -59,22 +59,6 @@ namespace DevStation.Migrations
             {
                 andy
             };
-
-
-            Job group = new Job { Id = 4, Title = "Group Project", Description = "Need to finish to graduate", Active = true, Employer = andy };
-            Job catcher = new Job { Id = 5, Title = "Bug Catcher", Description = "Catch bugs in the code", Active = true, Employer = andy };
-            Job frito = new Job { Id = 6, Title = "Detailer", Description = "Put chips on shelves", Employer = andy, Active = true };
-            Job programmer = new Job { Id = 7, Title = "Programmer", Description = "Write full CRUD wep api apps", Active = true, Employer = andy };
-
-            var jobs = new Job[]
-            {
-                group,
-                catcher,
-                frito,
-                programmer                
-            };
-
-            context.Jobs.AddOrUpdate(u => u.Title, jobs);
             context.SaveChanges();
 
             var tony = userManager.FindByName("tonyc");
@@ -90,7 +74,6 @@ namespace DevStation.Migrations
                     SkillSet = "Full Stack .Net, Javascript, C#, Typescript",
                     Img = "http://www.almostsavvy.com/wp-content/uploads/2011/04/profile-photo.jpg",
                     Position = "Junior Developer",
-                    CompletedJobs = new Job[] { frito, group },
                     Active = true
                 };
 
