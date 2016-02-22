@@ -1,19 +1,17 @@
 ﻿.homepage-text{
     color: white;
-    top: 30%;
-    font-size: 25px;
-    position: absolute;
+    font-size: 1.9em;
     font-family: 'Montserrat', sans-serif;
 }
 
 .homepage-div {
     display: inline-block;
-    margin-left: 105px;
+    margin: 50px;
 }
 
 .homepage-bullets{
     list-style-type: none;
-    font-size: 22px;
+    font-size: .80em;
     margin: 25px;
 }
 
@@ -96,7 +94,10 @@ button {
 }*/
 
 .homepage-image {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 80vh;
     width: auto;
     background: linear-gradient( rgba(73, 155, 234, 0.90), rgba(73, 155, 234, 0.75) ), url("../Presentation/ngApp/img/trainStation.jpg");
