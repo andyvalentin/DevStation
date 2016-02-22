@@ -87,7 +87,6 @@ namespace DevStation.Migrations
                     FirstName = "Tony",
                     LastName = "Chabi",
                     PhoneNumber = "(847) 999-9999",
-                    CurrentJob = programmer,
                     SkillSet = "Full Stack .Net, Javascript, C#, Typescript",
                     Img = "http://www.almostsavvy.com/wp-content/uploads/2011/04/profile-photo.jpg",
                     Position = "Junior Developer",

@@ -25,7 +25,11 @@
                 })
         }
 
-        constructor(private $http: ng.IHttpService, private $location: ng.ILocationService) {
+        public logout() {
+            this.$window.localStorage.removeItem('token');
+        }
+
+        constructor(private $http: ng.IHttpService, private $location: ng.ILocationService, private $window) {
             this.$http.get(`/api/users/employerProfile`)
                 .then((response) => {
                     this.employer = response.data;

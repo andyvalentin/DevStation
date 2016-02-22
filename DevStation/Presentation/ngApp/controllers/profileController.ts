@@ -31,16 +31,15 @@
                 })
         }
 
-        public logout() {
-            this.$window.localStorage.removeItem('token');
-            this.$location.path("/");
-        }
-
         public finishJob(id) {
             this.$http.get(`api/users/completeJob/${id}`)
                 .then((response) => {
                     
                 })
+        }
+
+        public logout() {
+            this.$window.localStorage.removeItem('token');
         }
 
         constructor(private $http: ng.IHttpService, private $window: ng.IWindowService, private $location: ng.ILocationService) {

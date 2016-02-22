@@ -17,8 +17,11 @@
                 });
         }
 
+        public logout() {
+            this.$window.localStorage.removeItem('token');
+        }
 
-        public constructor(private $http: ng.IHttpService, private $location) {
+        public constructor(private $http: ng.IHttpService, private $location, private $window) {
             this.$http.get(`api/devs/list`)
                 .then((response) => {
                     this.devs = response.data;
