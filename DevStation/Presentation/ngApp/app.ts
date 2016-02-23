@@ -15,7 +15,7 @@
                 },
                 responseError: (response) => {
                     if (response.status === 401) {
-                        $location.path('/login');
+                        $location.path('/');
                     }
                     return response || $q.when(response);
                 }

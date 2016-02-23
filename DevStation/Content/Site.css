@@ -25,7 +25,7 @@ body.modal-open {
 
 .user-search{
    width: 600px;
-   height: 35px;
+   height: 45px;
    font-size: 25px;
 }
 
@@ -42,9 +42,6 @@ body.modal-open {
     align-items: center;
 }
 
-.edit-div {
-    background-color: dodgerblue;
-}
 
 .profile-edit {
     width: 400px;
@@ -109,8 +106,13 @@ button {
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
-.devhome-background{
-    background-color:dodgerblue;
+.background{
+    background: linear-gradient( rgba(73, 155, 234, 0.90), rgba(73, 155, 234, 0.75) ), url("../Presentation/ngApp/img/trainStation.jpg");
+    background-repeat: repeat-y;
+    background-size: 120%;
+    border-radius: 5px;
+    min-height: 100vh;
+    height: auto;
 }
 
 p {
@@ -141,6 +143,10 @@ label {
     float: right;
 }
 
-#editBorder {
-    border: 40px groove dodgerblue;
+.job-headings {
+    text-decoration: underline;
+}
+
+.job-details{
+    font-size: 1.15em;
 }
