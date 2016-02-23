@@ -29,7 +29,7 @@
             $routeProvider
                 .when('/', {
                     templateUrl: 'Presentation/ngApp/views/homePage.html',
-                    controller: DevStation.Controllers.HomePageController,
+                    controller: DevStation.Controllers.ModalController,
                     controllerAs: 'c'
                 })
                 .when("/dev/home", {

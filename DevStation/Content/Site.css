@@ -154,3 +154,7 @@ label {
 #wordbreak {
     word-wrap:break-word;
 }
+
+.profile-div {
+  margin-top: 7%;
+}

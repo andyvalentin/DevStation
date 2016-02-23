@@ -8,7 +8,7 @@
 
             this.$http.post('/api/account/register', user)
                 .then((response) => {
-                    console.log('Registered a new user!');
+                    this.login(user.userName, user.password);
                 })
                 .catch((response) => {
                     console.log(response);
@@ -25,10 +25,10 @@
                     this.$window.localStorage.setItem('token', response.data['access_token']);
                     console.log(response.data['role']);
                     if (response.data['role'] == 'Developer') {
-                        this.$location.path('/dev/profile');
+                        this.$location.path('/dev/home');
                     }
                     else if (response.data['role'] == 'Employer') {
-                        this.$location.path('/employer/profile');
+                        this.$location.path('/employer/home');
                     }
                 })
                 .catch((response) => {

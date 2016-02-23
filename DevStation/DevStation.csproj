@@ -323,7 +323,7 @@
     <TypeScriptCompile Include="Presentation\ngApp\controllers\authController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\devSearchController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\employerProfileController.ts" />
-    <TypeScriptCompile Include="Presentation\ngApp\controllers\homePageController.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\modalController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\inboxController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobDetailsController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\jobSearchController.ts" />
