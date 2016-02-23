@@ -14,11 +14,13 @@
     </div>
 </nav>
 
-<div class="container-fluid">
+<hr />
+
+<div class="background">
     <br />
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
             <div class="row well">
                 <div class="col-md-4" id="profile">
                     <img class="img-rounded" id="profilepic" src="{{c.job.employer.img}}" />
@@ -38,8 +40,10 @@
                 </div>
                 <div class="col-md-8 text-center" id="job">
                     <div class="text-center">
-                        <h1>{{c.job.title}}</h1>
-                        <h3>{{c.job.description}}</h3>
+                        <h2 class="job-headings">Job Title</h2>
+                        <p class="job-details">{{c.job.title}}</p>
+                        <h3 class="job-headings">Job Description</h3>
+                        <p class="job-details">{{c.job.description}}</p>
                     </div>
                 </div>
             </div>

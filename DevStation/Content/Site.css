@@ -1,19 +1,17 @@
 ﻿.homepage-text{
     color: white;
-    top: 30%;
-    font-size: 25px;
-    position: absolute;
+    font-size: 1.9em;
     font-family: 'Montserrat', sans-serif;
 }
 
 .homepage-div {
     display: inline-block;
-    margin-left: 105px;
+    margin: 50px;
 }
 
 .homepage-bullets{
     list-style-type: none;
-    font-size: 22px;
+    font-size: .80em;
     margin: 25px;
 }
 
@@ -27,7 +25,7 @@ body.modal-open {
 
 .user-search{
    width: 600px;
-   height: 35px;
+   height: 45px;
    font-size: 25px;
 }
 
@@ -44,9 +42,6 @@ body.modal-open {
     align-items: center;
 }
 
-.edit-div {
-    background-color: dodgerblue;
-}
 
 .profile-edit {
     width: 400px;
@@ -96,7 +91,10 @@ button {
 }*/
 
 .homepage-image {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 80vh;
     width: auto;
     background: linear-gradient( rgba(73, 155, 234, 0.90), rgba(73, 155, 234, 0.75) ), url("../Presentation/ngApp/img/trainStation.jpg");
@@ -108,8 +106,13 @@ button {
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
-.devhome-background{
-    background-color:dodgerblue;
+.background{
+    background: linear-gradient( rgba(73, 155, 234, 0.90), rgba(73, 155, 234, 0.75) ), url("../Presentation/ngApp/img/trainStation.jpg");
+    background-repeat: repeat-y;
+    background-size: 120%;
+    border-radius: 5px;
+    min-height: 100vh;
+    height: auto;
 }
 
 p {
@@ -140,8 +143,12 @@ label {
     float: right;
 }
 
-#editBorder {
-    border: 40px groove dodgerblue;
+.job-headings {
+    text-decoration: underline;
+}
+
+.job-details{
+    font-size: 1.15em;
 }
 
 #wordbreak {

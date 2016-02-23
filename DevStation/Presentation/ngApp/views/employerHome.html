@@ -13,17 +13,19 @@
     </div>
 </nav>
 
-<div class="devhome-background">
-    <div class="">
-        <div>
-            <input ng-model="searchTerm" ng-model-options="{ debounce: 300 }" placeholder="Search Through Available Developers" class="form-control user-search" ng-change="c.searchDevs(searchTerm)" />
+<hr />
+
+<div class="background">
+    <br />
+        <div class="search-box">
+            <input ng-model="searchTerm" ng-model-options="{ debounce: 300 }" placeholder="Search Through Available Developers" class="form-control user-search animated flipInX" ng-change="c.searchDevs(searchTerm)" />
         </div>
-    </div>
+
     <br />
 
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
             <div class="row well text-center" ng-repeat="dev in c.devs">
                 <div class="col-md-4">
                     <img class="img-rounded" id="profilepic" src="{{dev.img}}" />

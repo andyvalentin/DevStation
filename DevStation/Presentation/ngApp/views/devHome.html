@@ -13,12 +13,14 @@
     </div>
 </nav>
 
-<div class="devhome-background">
-    <div class="search">
+<hr />
+
+<div class="background">
+    <br />
         <div>
-            <input ng-model="searchTerm" ng-model-options="{ debounce: 300 }" placeholder="Search Through Jobs" class="" ng-change="c.searchJobs(searchTerm)" />
+            <input ng-model="searchTerm" ng-model-options="{ debounce: 300 }" placeholder="Search Through Jobs" class="form-control user-search animated flipInX" ng-change="c.searchJobs(searchTerm)" />
         </div>
-    </div>
+
     <br />
 
     <div class="row">
