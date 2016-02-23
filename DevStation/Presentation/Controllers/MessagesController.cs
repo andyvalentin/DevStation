@@ -36,12 +36,16 @@ namespace DevStation.Presentation.Controllers
         [Route("api/messages/send")]
         public IHttpActionResult SendMessage(Message messageSent)
         {
-            if(ModelState.IsValid)
+            if(messageSent != null)
             {
-                 _messageService.Send(messageSent, User.Identity.Name);
-                return Ok("Message was sent successfully");
+                if (ModelState.IsValid)
+                {
+                    _messageService.Send(messageSent, User.Identity.Name);
+                    return Ok("Message was sent successfully");
+                }
+                return BadRequest("Message was not sent");
             }
-            return BadRequest("Message was not sent");
+            return BadRequest();
         }
     }
 }
