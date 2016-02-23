@@ -9,12 +9,16 @@
                         if (response.status == 400) {
                             alert("Description must be at least 25 characters");
                         } else {
-                            this.$location.path("/employerprofile");
+                            this.$location.path("/employer/profile");
                         }                                             
                     })
         }
 
-        constructor(private $http: ng.IHttpService, private $location: ng.ILocationService) {
+        public logout() {
+            this.$window.localStorage.removeItem('token');
+        }
+
+        constructor(private $http: ng.IHttpService, private $location: ng.ILocationService, private $window) {
             
         }
     }

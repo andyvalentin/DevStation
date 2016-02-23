@@ -5,8 +5,9 @@
         </div>
         <div>
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
-                <li class="navbar-ul-li"><a href="#/devprofile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                <li class="navbar-ul-li"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li class="navbar-ul-li"><a href="#/dev/inbox"><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
+                <li class="navbar-ul-li"><a href="#/dev/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>                
+                <li class="navbar-ul-li"><a href="#/login" ng-click="c.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </div>
@@ -31,12 +32,12 @@
                     <div class="page-header text-center">
                         <h1>{{job.employer.firstName}} {{job.employer.lastName}}</h1>
                         <h4>{{j.employer.position}}</h4>
+                        <button ng-click="c.jobDetails(job.id)">Job Details</button>
                     </div>
                 </div>
                 <div class="col-md-8 page-header">
                     <h1>{{job.title}}</h1>
-                    <p>{{job.description}}</p>
-                    <button ng-click="c.jobDetials(job.id)">Job Details</button>
+                    <p>{{job.description}}</p>                   
                 </div>
             </div>
         </div>

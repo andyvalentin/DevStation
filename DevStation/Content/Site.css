@@ -150,3 +150,7 @@ label {
 .job-details{
     font-size: 1.15em;
 }
+
+#wordbreak {
+    word-wrap:break-word;
+}

@@ -5,7 +5,7 @@
         public employer;
 
         public toEdit() {
-            this.$location.path("/devprofile/edit");
+            this.$location.path("/dev/profile/edit");
         }
 
         public updateDevProfile() {
@@ -13,7 +13,7 @@
                 .then((response) => {
                 })
             console.log("Function works");
-            this.$location.path("/user/devprofile/");
+            this.$location.path("/devprofile/");
         }
 
 
@@ -31,16 +31,19 @@
                 })
         }
 
-        public logout() {
-            this.$window.localStorage.removeItem('token');
-            this.$location.path("/");
-        }
-
         public finishJob(id) {
             this.$http.get(`api/users/completeJob/${id}`)
                 .then((response) => {
-                    
+                    this.getUserProfile();
                 })
+        }
+
+        public jobDetails(id: number) {
+            this.$location.path(`/job/details/${id}`);
+        }
+
+        public logout() {
+            this.$window.localStorage.removeItem('token');
         }
 
         constructor(private $http: ng.IHttpService, private $window: ng.IWindowService, private $location: ng.ILocationService) {

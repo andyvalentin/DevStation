@@ -50,11 +50,17 @@ namespace DevStation.Presentation.Controllers
         [HttpPost]
         [Authorize]
         [Route("api/user/profile/edit")]
-        public IHttpActionResult UpdateUserProfile(ApplicationUser user) {
-            if (ModelState.IsValid) {
-                _userService.UpdateDevProfile(user.FirstName, user.LastName, user.PhoneNumber, user.Email, user.SkillSet, User.Identity.Name);
+        public IHttpActionResult UpdateUserProfile(ApplicationUser user)
+        {
+            if(user != null)
+            {
+                if (ModelState.IsValid)
+                {
+                    _userService.UpdateDevProfile(user.FirstName, user.LastName, user.PhoneNumber, user.Email, user.SkillSet, User.Identity.Name);
 
-                return Ok();
+                    return Ok();
+                }
+                return BadRequest();
             }
             return BadRequest();
         }
@@ -64,12 +70,16 @@ namespace DevStation.Presentation.Controllers
         [Route("api/user/employerprofile/edit")]
         public IHttpActionResult UpdateEmployerProfile(ApplicationUser employer)
         {
-            if (ModelState.IsValid)
+            if(employer != null)
             {
-                _userService.UpdateEmployerProfile(employer, User.Identity.Name);
-                return Ok();
+                if (ModelState.IsValid)
+                {
+                    _userService.UpdateEmployerProfile(employer, User.Identity.Name);
+                    return Ok();
+                }
+                return BadRequest("Current Employer was not edited");
             }
-            return BadRequest("Current Employer was not edited");
+            return BadRequest();
         }
 
         [HttpGet]

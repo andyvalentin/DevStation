@@ -17,11 +17,15 @@
                 });
         }
 
-        public jobDetials(id: number) {
+        public jobDetails(id: number) {
             this.$location.path(`/job/details/${id}`);
         }
 
-        public constructor(private $http: ng.IHttpService, private $location) {
+        public logout() {
+            this.$window.localStorage.removeItem('token');
+        }
+
+        public constructor(private $http: ng.IHttpService, private $location, private $window) {
             this.$http.get(`api/jobs/list`)
                 .then((response) => {
                     this.jobs = response.data;

@@ -5,8 +5,8 @@
         </div>
         <div>
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
-                <li class="navbar-ul-li"><a href=""><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
-                <li class="navbar-ul-li"><a href="#/devhome"><span class="glyphicon glyphicon-list"></span> Job List</a></li>
+                <li class="navbar-ul-li"><a href="#/dev/inbox"><span class="glyphicon glyphicon-inbox"></span> Inbox</a></li>
+                <li class="navbar-ul-li"><a href="#/dev/home"><span class="glyphicon glyphicon-list"></span> Job List</a></li>
                 <li class="navbar-ul-li"><a href="#/" ng-click="c.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
@@ -78,7 +78,7 @@
                                     <br />
                                     <label>Description:</label>             
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6" id="wordbreak">
                                     <br />
                                     <label>{{c.user.currentJob.title}}</label>
                                     <br />

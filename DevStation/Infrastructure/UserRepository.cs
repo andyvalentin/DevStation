@@ -59,6 +59,7 @@ namespace DevStation.Infrastructure
                     .Include(u => u.CurrentJob)
                     .Include(u => u.CompletedJobs)
                     .Include(u => u.Roles)
+                    .Include(u => u.Inbox)
                     .FirstOrDefault();
         }
 
