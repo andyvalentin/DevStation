@@ -23,7 +23,13 @@
             })
                 .then((response) => {
                     this.$window.localStorage.setItem('token', response.data['access_token']);
-                    this.$location.path('/dev/profile');
+                    console.log(response.data['role']);
+                    if (response.data['role'] == 'Developer') {
+                        this.$location.path('/dev/profile');
+                    }
+                    else if (response.data['role'] == 'Employer') {
+                        this.$location.path('/employer/profile');
+                    }
                 })
                 .catch((response) => {
                     console.log(response);

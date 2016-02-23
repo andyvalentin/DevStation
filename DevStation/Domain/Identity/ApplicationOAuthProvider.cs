@@ -33,6 +33,7 @@ namespace DevStation.Providers
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
+            var roles = userManager.GetRoles(user.Id);
 
             if (user == null)
             {
@@ -45,7 +46,7 @@ namespace DevStation.Providers
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            AuthenticationProperties properties = CreateProperties(user.UserName, roles.FirstOrDefault());
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -85,6 +86,16 @@ namespace DevStation.Providers
             }
 
             return Task.FromResult<object>(null);
+        }
+
+        public static AuthenticationProperties CreateProperties(string userName, string role)
+        {
+            IDictionary<string, string> data = new Dictionary<string, string>
+            {
+                { "userName", userName },
+                { "role", role}
+            };
+            return new AuthenticationProperties(data);
         }
 
         public static AuthenticationProperties CreateProperties(string userName)
