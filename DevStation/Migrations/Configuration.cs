@@ -32,7 +32,7 @@ namespace DevStation.Migrations
             var userManager = new ApplicationUserManager(userStore);
 
 
-            
+
 
             ApplicationUser andrew = userManager.FindByName("andrew");
 
@@ -119,7 +119,7 @@ namespace DevStation.Migrations
 
                 userManager.Create(tony, "Secret123!");
                 userManager.AddToRole(tony.Id, "Developer");
-                
+
             }
 
             var andy = userManager.FindByName("andyv");
@@ -161,6 +161,37 @@ namespace DevStation.Migrations
                 userManager.Create(woz, "Secret123!");
                 userManager.AddToRole(woz.Id, "Developer");
             }
+
+            var jobs = new Job[]
+
+                {
+                    new Job {
+                        Title = "Help redesigning HomePage",
+                        Description = "I would like my homepage to use newer technologies such as HTML5, CSS3 and Angularjs.  If you are interested in please accept this job and I will be waiting on your message to further discuss specifics",
+                        Employer = bill,
+                        Active = true,
+                        Complete = false},
+
+                    new Job {
+                        Title = "Code cleanup",
+                        Description = "Our repsitory code base needs a cleanup.  Naming conventions need to be adjusted and code refactored.",
+                        Employer = andrew,
+                        Active = true,
+                        Complete = false
+                    },
+
+                    new Job
+                    {
+                        Title = "Bootstrap update",
+                        Description = "Our site currently uses custome CSS and we would like to move to an all boostrap front-end.",
+                        Employer = steve,
+                        Active = true,
+                        Complete = false
+                    }
+
+                };
+
+            context.Jobs.AddOrUpdate(j => j.Title, jobs);
 
             context.SaveChanges();
         }

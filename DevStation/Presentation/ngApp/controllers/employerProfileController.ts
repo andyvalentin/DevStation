@@ -14,12 +14,16 @@
         public editEmployerProfile() {
             this.$http.post(`api/user/employerprofile/edit`, this.employer)
                 .then((response) => {
-                    this.$location.path("/employer/profile")
+                    location.reload();
                 })
         }
 
         public toAddJob() {
-            this.$location.path("/employer/addjob")
+            this.$uibModal.open({
+                templateUrl: "Presentation/ngApp/views/addJob.html",
+                controller: DevStation.Controllers.AddJobsController,
+                controllerAs: "c"
+            });
         }
 
         public completeJob(id:number) {

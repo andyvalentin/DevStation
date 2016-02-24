@@ -60,11 +60,6 @@
                     controller: DevStation.Controllers.EmployerProfileController,
                     controllerAs: "c"
                 })
-                .when("/employer/addjob", {
-                    templateUrl: "Presentation/ngApp/views/addJob.html",
-                    controller: DevStation.Controllers.AddJobsController,
-                    controllerAs: "c"
-                })
                 .when("/dev/inbox", {
                     templateUrl: "Presentation/ngApp/views/devinbox.html",
                     controller: DevStation.Controllers.InboxController,

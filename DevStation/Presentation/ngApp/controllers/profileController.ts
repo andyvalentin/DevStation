@@ -16,8 +16,7 @@
             this.$http.post("api/user/profile/edit", this.user)
                 .then((response) => {
                 })
-            console.log("Function works");
-            this.$location.path("/devprofile/");
+            location.reload();
         }
 
 
