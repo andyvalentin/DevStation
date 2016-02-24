@@ -23,7 +23,7 @@
         <div class="col-md-2 well message-div" id="compose-message">
             <form ng-submit="c.send()">
                 <label>To</label>
-                <input ng-model="c.message.to" ng-model-options="{ debounce: 400 }" ng-change="c.searchUserNames(c.message.to); c.show = true" placeholder="Username" class="form-control" />
+                <input ng-model="c.message.to" type="search" ng-model-options="{ debounce: 400 }" ng-change="c.searchUserNames(c.message.to); c.show = true" placeholder="Username" class="form-control" />
                 <div class="searchresult well" ng-show="c.show">
                     <dl>
                         <dt ng-repeat="user in c.userSearch">
