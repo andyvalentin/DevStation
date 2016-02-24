@@ -21,7 +21,7 @@ namespace DevStation.Infrastructure
             _db = (ApplicationDbContext)db;
         }
 
-        public IQueryable<ApplicationUser> ListUsers()
+        public IQueryable<ApplicationUser> ListAllUsers()
         {
             return from u in _db.Users
                    where u.Active
@@ -38,7 +38,7 @@ namespace DevStation.Infrastructure
            
         }
 
-        public IList<ApplicationUser> SearchDevs(string searchTerm)
+        public IQueryable<ApplicationUser> SearchDevs(string searchTerm)
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_db));
             var role = roleManager.FindByName("Developer");
@@ -48,7 +48,7 @@ namespace DevStation.Infrastructure
                     (u.FirstName.Contains(searchTerm) ||
                     u.LastName.Contains(searchTerm) ||
                     u.SkillSet.Contains(searchTerm))
-                    select u).ToList();
+                    select u);
         }
 
         public ApplicationUser UserByUserName(string userName)
