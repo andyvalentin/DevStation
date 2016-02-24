@@ -1,5 +1,6 @@
 ﻿using DevStation.Domain;
 using DevStation.Services;
+using DevStation.Services.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace DevStation.Presentation.Controllers
     public class MessagesController : ApiController
     {
         private MessageService _messageService;
+        private UserService _userService;
 
-        public MessagesController(MessageService messageService)
+        public MessagesController(MessageService messageService, UserService userService)
         {
             _messageService = messageService;
+            _userService = userService;
         }
 
         [HttpGet]
@@ -47,5 +50,37 @@ namespace DevStation.Presentation.Controllers
             }
             return BadRequest();
         }
+
+        //try to figure out if u have time
+        [HttpDelete]
+        [Authorize]
+        [Route("api/messages/deleteMany")]
+        public IHttpActionResult DeleteMany(int[] messagesToDelete)
+        {
+            return null;
+        }
+
+        [HttpDelete]
+        [Authorize]
+        [Route("api/messages/deleteOne/{id}")]
+        public IHttpActionResult DeleteMessage(int id)
+        {
+            if(ModelState.IsValid)
+            {
+                _messageService.DeleteOne(id);
+                return Ok();
+            }
+            return BadRequest("Could not find message");
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/messages/user/{searchTerm}")]
+        public IList<DeveloperDTO> SearchUserNames(string searchTerm)
+        {
+            var listToReturn = _userService.SearchUserNames(searchTerm);
+            return listToReturn;
+        }
+
     }
 }

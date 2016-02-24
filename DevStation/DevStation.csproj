@@ -262,6 +262,7 @@
     <Content Include="Presentation\ngApp\views\devProfileEdit.html" />
     <Content Include="Presentation\ngApp\views\devProfile.html" />
     <Content Include="Presentation\ngApp\views\employerHome.html" />
+    <Content Include="Presentation\ngApp\views\employerInbox.html" />
     <Content Include="Presentation\ngApp\views\employerProfile.html" />
     <Content Include="Presentation\ngApp\views\employerProfileEdit.html" />
     <Content Include="Presentation\ngApp\views\homePage.html" />

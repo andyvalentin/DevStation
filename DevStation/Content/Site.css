@@ -154,3 +154,40 @@ label {
 #wordbreak {
     word-wrap:break-word;
 }
+
+.searchresult {
+    position:absolute;
+    z-index: 1;
+}
+
+#messagefeed {
+    overflow: auto;
+    min-height: 50%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.message {
+    width: 80%;
+    border: 3px groove dodgerblue;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 50px;
+}
+
+.textarea {
+    height: 10%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#message-from {
+    align-content: flex-start;
+}
+
+.message-div {
+    margin-top: 7%;
+}

@@ -21,7 +21,7 @@ namespace DevStation.Infrastructure
             _db = (ApplicationDbContext)db;
         }
 
-        public IQueryable<ApplicationUser> ListUsers()
+        public IQueryable<ApplicationUser> ListAllUsers()
         {
             return from u in _db.Users
                    where u.Active

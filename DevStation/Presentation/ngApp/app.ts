@@ -81,5 +81,10 @@
                     controller: DevStation.Controllers.InboxController,
                     controllerAs: "c"
                 })
+                .when("/employer/inbox", {
+                    templateUrl: "Presentation/ngApp/views/employerinbox.html",
+                    controller: DevStation.Controllers.InboxController,
+                    controllerAs: "c"
+                })
         });
 }
