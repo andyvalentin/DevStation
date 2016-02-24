@@ -26,13 +26,13 @@ namespace DevStation.Infrastructure
 
         public IQueryable<Job> SearchJobs(string searchTerm)
         {
-            return from j in _db.Jobs
+            return (from j in _db.Jobs
                    where j.Active &&
-                   (j.Title.Contains(searchTerm) ||
+                   j.Title.Contains(searchTerm) ||
                    j.Description.Contains(searchTerm) ||
-                   j.Employer.FirstName.Contains(searchTerm)) ||
-                   j.Employer.Company.Contains(searchTerm)
-                   select j;
+                   j.Employer.FirstName.Contains(searchTerm) ||
+                   j.Employer.LastName.Contains(searchTerm)
+                   select j);
         }
 
         public Job JobById(int id)

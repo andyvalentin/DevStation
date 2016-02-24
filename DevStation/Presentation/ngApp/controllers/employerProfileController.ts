@@ -7,6 +7,10 @@
             this.$location.path("/employer/profile/edit")
         }
 
+        public toProfile() {
+            this.$location.path("/employer/profile")
+        }
+
         public editEmployerProfile() {
             this.$http.post(`api/user/employerprofile/edit`, this.employer)
                 .then((response) => {

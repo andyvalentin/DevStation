@@ -48,5 +48,17 @@ namespace DevStation.Services
             _userRepo.SaveChanges();
         }
 
+        public void DeleteMany(int[] messagesToDelete)
+        {
+            foreach(var message in messagesToDelete)
+            {
+                _messageRepo.DeleteMessage(message);
+            }
+        }
+
+        public void DeleteOne(int id)
+        {
+            _messageRepo.DeleteMessage(id);
+        }
     }
 }

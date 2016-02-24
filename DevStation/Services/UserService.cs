@@ -35,6 +35,17 @@ namespace DevStation.Services
                     }).ToList();
         }
 
+        public IList<DeveloperDTO> SearchUserNames(string searchTerm)
+        {
+            var listToReturn = (from u in _userRepo.ListAllUsers().ToList()
+                                where u.UserName.StartsWith(searchTerm)
+                                select new DeveloperDTO()
+                                {
+                                    UserName = u.UserName
+                                });
+            return listToReturn.ToList();
+        }
+
         public IList<DeveloperDTO> SearchDevs(string searchTerm)
         {
             return (from d in _userRepo.SearchDevs(searchTerm)

@@ -8,22 +8,44 @@
             <ul class="nav navbar-nav pull-right" id="navbar-ul">
                 <li class="navbar-ul-li"><a href="/#/dev/profile" class="navbar-btn"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                 <li class="navbar-ul-li"><a href="/#/dev/home" class="navbar-btn"><span class="glyphicon glyphicon-list"></span> Job List</a></li>
-                <li class="navbar-ul-li"><a href="" ng-click="c.logout()" class="navbar-btn"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li class="navbar-ul-li"><a href="#/" ng-click="c.logout()" class="navbar-btn"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<form ng-submit="c.send()">
-    <input ng-model="c.message.to" placeholder="To" class="form-control"/>
-    <textarea ng-model="c.message.body" placeholder="Message Here" class="form-control"></textarea>
-    <input type="submit" class="btn btn-primary" value="Send"/>
-</form>
+<hr />
 
-<div ng-repeat="message in c.inbox">
-    {{message.from}}
-    <br />
-    {{message.body}}
-    <br />
-    {{message.dateCreated}}
+<div class="background">
+    <div class="row">
+        <br />
+        <div class="col-md-2"></div>
+        <div class="col-md-2 well message-div" id="compose-message">
+            <form ng-submit="c.send()">
+                <label>To</label>
+                <input ng-model="c.message.to" ng-model-options="{ debounce: 400 }" ng-change="c.searchUserNames(c.message.to); c.show = true" placeholder="Username" class="form-control" />
+                <div class="searchresult well" ng-show="c.show">
+                    <dl>
+                        <dt ng-repeat="user in c.userSearch">
+                            <a href="" ng-click="c.message.to = user.userName; c.show = false">{{user.userName}}</a>
+                        </dt>
+                    </dl>
+                </div>
+                <label>Message Body</label>
+                <textarea ng-model="c.message.body" class="textarea"></textarea>
+                <input type="submit" class="btn btn-primary" value="Send" />
+            </form>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 well message-div" id="messagefeed">
+            <div class="message" id="profilepic message" ng-repeat="message in c.inbox">
+                <h3 id="message-from">From: {{message.from}}</h3>
+                <h4 id="wordbreak">{{message.body}}</h4>
+                <button class="btn btn-danger" ng-click="c.deleteOne(message.id)" value="Delete">Delete</button>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 </div>

@@ -5,7 +5,7 @@
         public searchDevs(searchTerm: string) {
             this.devs = [];
 
-            if (searchTerm != "") {
+            if (searchTerm) {
                 this.$http.get(`/api/devs/search/${searchTerm}`)
                     .then((response) => {
                         this.devs = response.data;

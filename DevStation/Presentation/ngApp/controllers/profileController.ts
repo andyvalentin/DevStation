@@ -8,12 +8,16 @@
             this.$location.path("/dev/profile/edit");
         }
 
+        public toProfile() {
+            this.$location.path("/dev/profile")
+        }
+
         public updateDevProfile() {
             this.$http.post("api/user/profile/edit", this.user)
                 .then((response) => {
                 })
             console.log("Function works");
-            this.$location.path("/devprofile/");
+            this.$location.path("/dev/profile");
         }
 
 

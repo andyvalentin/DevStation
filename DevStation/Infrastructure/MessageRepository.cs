@@ -24,5 +24,25 @@ namespace DevStation.Infrastructure
                             select m);
             return messages;
         }
+
+        public Message MessageById(int id)
+        {
+            var message = (from m in _db.Messages
+                           where m.Active && m.Id == id
+                           select m);
+            return message.FirstOrDefault();
+        }
+
+        public void DeleteMessage(int id)
+        {
+            var messageToDelete = MessageById(id);
+            messageToDelete.Active = false;
+            SaveChanges();
+        }
+
+        public void SaveChanges()
+        {
+            _db.SaveChanges();
+        }
     }
 }
