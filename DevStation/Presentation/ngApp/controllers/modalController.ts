@@ -1,5 +1,5 @@
 ﻿namespace DevStation.Controllers {
-    export class HomePageController {
+    export class ModalController {
 
         public registration() {
             this.$uibModal.open({
@@ -18,8 +18,5 @@
         }
 
         constructor(private $uibModal) { }
-
     }
-
-    angular.module('DevStation').controller('HomePageController', HomePageController)
 }

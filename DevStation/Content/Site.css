@@ -21,6 +21,7 @@ body.modal-open {
   right: 0;
   bottom: 0;
   left: 0;
+  overflow-y:auto;
 }
 
 .user-search{

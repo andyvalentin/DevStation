@@ -29,7 +29,7 @@
             $routeProvider
                 .when('/', {
                     templateUrl: 'Presentation/ngApp/views/homePage.html',
-                    controller: DevStation.Controllers.HomePageController,
+                    controller: DevStation.Controllers.ModalController,
                     controllerAs: 'c'
                 })
                 .when("/dev/home", {
@@ -49,12 +49,6 @@
                     controller: DevStation.Controllers.ProfileController,
                     controllerAs: "c"
                 })
-                .when("/dev/profile/edit",
-                {
-                    templateUrl: "Presentation/ngApp/views/devProfileEdit.html",
-                    controller: DevStation.Controllers.ProfileController,
-                    controllerAs: "c"
-                })
                 .when("/employer/home",
                 {
                     templateUrl: "Presentation/ngApp/views/employerHome.html",
@@ -63,16 +57,6 @@
                 })
                 .when("/employer/profile", {
                     templateUrl: "Presentation/ngApp/views/employerProfile.html",
-                    controller: DevStation.Controllers.EmployerProfileController,
-                    controllerAs: "c"
-                })
-                .when("/employer/addjob", {
-                    templateUrl: "Presentation/ngApp/views/addJob.html",
-                    controller: DevStation.Controllers.AddJobsController,
-                    controllerAs: "c"
-                })
-                .when("/employer/profile/edit", {
-                    templateUrl: "Presentation/ngApp/views/employerProfileEdit.html",
                     controller: DevStation.Controllers.EmployerProfileController,
                     controllerAs: "c"
                 })

@@ -5,19 +5,18 @@
         public employer;
 
         public toEdit() {
-            this.$location.path("/dev/profile/edit");
-        }
-
-        public toProfile() {
-            this.$location.path("/dev/profile")
+            this.$uibModal.open({
+                templateUrl: 'Presentation/ngApp/views/devProfileEdit.html',
+                controller: DevStation.Controllers.ProfileController,
+                controllerAs: 'c'
+            });
         }
 
         public updateDevProfile() {
             this.$http.post("api/user/profile/edit", this.user)
                 .then((response) => {
                 })
-            console.log("Function works");
-            this.$location.path("/dev/profile");
+            location.reload();
         }
 
 
@@ -50,7 +49,7 @@
             this.$window.localStorage.removeItem('token');
         }
 
-        constructor(private $http: ng.IHttpService, private $window: ng.IWindowService, private $location: ng.ILocationService) {
+        constructor(private $http: ng.IHttpService, private $window: ng.IWindowService, private $location: ng.ILocationService, private $uibModal) {
             this.getUserProfile();
             this.getEmployerProfile();
         }

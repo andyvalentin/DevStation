@@ -4,7 +4,11 @@
         
 
         public toEmployerEdit() {
-            this.$location.path("/employer/profile/edit")
+            this.$uibModal.open({
+                templateUrl: 'Presentation/ngApp/views/employerProfileEdit.html',
+                controller: DevStation.Controllers.EmployerProfileController,
+                controllerAs: 'c'
+            });
         }
 
         public toProfile() {
@@ -14,12 +18,16 @@
         public editEmployerProfile() {
             this.$http.post(`api/user/employerprofile/edit`, this.employer)
                 .then((response) => {
-                    this.$location.path("/employer/profile")
+                    location.reload();
                 })
         }
 
         public toAddJob() {
-            this.$location.path("/employer/addjob")
+            this.$uibModal.open({
+                templateUrl: "Presentation/ngApp/views/addJob.html",
+                controller: DevStation.Controllers.AddJobsController,
+                controllerAs: "c"
+            });
         }
 
         public completeJob(id:number) {
@@ -36,7 +44,7 @@
             this.$window.localStorage.removeItem('token');
         }
 
-        constructor(private $http: ng.IHttpService, private $location: ng.ILocationService, private $window) {
+        constructor(private $http: ng.IHttpService, private $location: ng.ILocationService, private $window, private $uibModal) {
             this.$http.get(`/api/users/employerProfile`)
                 .then((response) => {
                     this.employer = response.data;
