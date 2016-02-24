@@ -5,7 +5,7 @@
         public searchJobs(searchTerm: string) {
             this.jobs = [];
 
-            if (searchTerm != "") {
+            if (searchTerm) {
                 this.$http.get(`/api/jobs/search/${searchTerm}`)
                     .then((response) => {
                         this.jobs = response.data;
