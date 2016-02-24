@@ -16,7 +16,7 @@
 }
 
 body.modal-open {
-  position: fixed;
+  position: static;
   top: 0;
   right: 0;
   bottom: 0;

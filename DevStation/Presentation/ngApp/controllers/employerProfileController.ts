@@ -4,7 +4,11 @@
         
 
         public toEmployerEdit() {
-            this.$location.path("/employer/profile/edit")
+            this.$uibModal.open({
+                templateUrl: 'Presentation/ngApp/views/employerProfileEdit.html',
+                controller: DevStation.Controllers.EmployerProfileController,
+                controllerAs: 'c'
+            });
         }
 
         public editEmployerProfile() {
@@ -32,7 +36,7 @@
             this.$window.localStorage.removeItem('token');
         }
 
-        constructor(private $http: ng.IHttpService, private $location: ng.ILocationService, private $window) {
+        constructor(private $http: ng.IHttpService, private $location: ng.ILocationService, private $window, private $uibModal) {
             this.$http.get(`/api/users/employerProfile`)
                 .then((response) => {
                     this.employer = response.data;

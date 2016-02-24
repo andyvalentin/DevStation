@@ -5,7 +5,11 @@
         public employer;
 
         public toEdit() {
-            this.$location.path("/dev/profile/edit");
+            this.$uibModal.open({
+                templateUrl: 'Presentation/ngApp/views/devProfileEdit.html',
+                controller: DevStation.Controllers.ProfileController,
+                controllerAs: 'c'
+            });
         }
 
         public updateDevProfile() {
@@ -46,7 +50,7 @@
             this.$window.localStorage.removeItem('token');
         }
 
-        constructor(private $http: ng.IHttpService, private $window: ng.IWindowService, private $location: ng.ILocationService) {
+        constructor(private $http: ng.IHttpService, private $window: ng.IWindowService, private $location: ng.ILocationService, private $uibModal) {
             this.getUserProfile();
             this.getEmployerProfile();
         }
