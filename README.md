@@ -1,7 +1,7 @@
 # DevStation
 DevStation is a full-stack web application that allows new users to create employer or developer profiles and connect with one another by searching profiles and posting/accepting jobs. (Technologies Used: HTML5 - CSS3 - Bootstrap - AngularJS - AJAX - TypeScript - C# - ASP.NET MVC - LINQ)
 
-DevStation was the final project my partner and I completed as part of our graduation requirement at Coder Camps.
+DevStation was the final project my partner and I completed prior to graduation from Coder Camps.
 
 __My contributions to the project include:__
 
